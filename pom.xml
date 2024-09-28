@@ -42,8 +42,13 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-rest</artifactId>
     </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>3.3.4</version> <!-- Vérifie si cette version est correcte -->
+        </dependency>
 
-    <dependency>
+        <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
       <scope>runtime</scope>
@@ -78,7 +83,10 @@
     	<artifactId>spring-boot-configuration-processor</artifactId>
     	<optional>true</optional>
     </dependency>
-	</dependencies>
+
+
+
+    </dependencies>
   
   <build>
     <plugins>
