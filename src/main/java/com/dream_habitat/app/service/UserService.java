@@ -21,8 +21,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserCreateDTO addUser(User user) {
-        // Vérifie si l'email existe déjà
+    public UserDTO addUser(User user) {
         Optional<User> existingUser = userRepository.findByEmail(user.getEmail());
         if (existingUser.isPresent()) {
             throw new EmailAlreadyExistsException("L'email est déjà utilisé : " + user.getEmail());
@@ -34,7 +33,7 @@ public class UserService {
         user.setPassword(encodedPassword);
 
         User savedUser = userRepository.save(user);
-        return new UserCreateDTO(savedUser.getName(), savedUser.getEmail(), savedUser.getPassword());
+        return new UserDTO(savedUser.getId(), savedUser.getName(), savedUser.getEmail());
     }
 
 
