@@ -32,4 +32,9 @@ public class User {
         this.password = password;
     }
 
+    public User(Long id, String name, String email) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+    }
 }
