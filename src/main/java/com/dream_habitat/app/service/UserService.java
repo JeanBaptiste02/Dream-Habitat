@@ -36,6 +36,14 @@ public class UserService {
         return new UserDTO(savedUser.getId(), savedUser.getName(), savedUser.getEmail());
     }
 
+    /**
+     * Retrieves a user by their email address
+     * @param email The email address of the user to retrieve
+     * @return The user with the specified email address
+     */
+    public User getUserByEmail(String email){return userRepository.findUserByEmail(email);}
+
+
 
 }
 
