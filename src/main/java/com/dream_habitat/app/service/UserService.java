@@ -9,8 +9,9 @@ import com.dream_habitat.app.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -46,6 +47,13 @@ public class UserService {
     public UserDTO getUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow();
         return new UserDTO(user.getId(), user.getName(), user.getEmail());
+    }
+    
+    public List<UserDTO> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        return users.stream()
+                .map(user -> new UserDTO(user.getId(), user.getName(), user.getEmail()))
+                .collect(Collectors.toList());
     }
 
 }

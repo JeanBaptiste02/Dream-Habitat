@@ -6,6 +6,9 @@ import com.dream_habitat.app.dto.UserDTO;
 import com.dream_habitat.app.dto.UserCreateDTO;
 import com.dream_habitat.app.model.User;
 import com.dream_habitat.app.service.UserService;
+
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,5 +39,12 @@ public class UserController {
         UserDTO userDto = userService.getUserById(id);
         return ResponseEntity.ok(userDto);
     }
+    
+    @GetMapping("/")
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        List<UserDTO> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
+
 }
 
