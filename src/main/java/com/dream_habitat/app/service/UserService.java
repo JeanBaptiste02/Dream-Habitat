@@ -56,5 +56,12 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+    public UserDTO updateUser(Long id, UserCreateDTO userCreateDto) {
+        User user = userRepository.findById(id).orElseThrow();
+        user.setName(userCreateDto.getName());
+        user.setEmail(userCreateDto.getEmail());
+        User updatedUser = userRepository.save(user);
+        return new UserDTO(updatedUser.getId(), updatedUser.getName(), updatedUser.getEmail());
+    }
 }
 
