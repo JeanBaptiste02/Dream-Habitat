@@ -43,7 +43,10 @@ public class UserService {
      */
     public User getUserByEmail(String email){return userRepository.findUserByEmail(email);}
 
-
+    public UserDTO getUserById(Long id) {
+        User user = userRepository.findById(id).orElseThrow();
+        return new UserDTO(user.getId(), user.getName(), user.getEmail());
+    }
 
 }
 
