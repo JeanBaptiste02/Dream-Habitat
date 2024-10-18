@@ -32,7 +32,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/api/login", "/api/users/addUser").permitAll()
                         .requestMatchers("/api/users/**").authenticated()
-//                        .requestMatchers("/api/hello", "update/user", "/api/users/getuser", "/api/photo/upload", "/api/photo/delete").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(management -> management
