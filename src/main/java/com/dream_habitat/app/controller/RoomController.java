@@ -126,17 +126,6 @@ public class RoomController {
     }
 
 
-    /**
-     * Extracts the JWT token from the HTTP servlet request
-     * @param request The HTTP servlet request
-     * @return The extracted JWT token, or null if not found
-     */
-    public String extractTokenFromRequest(HttpServletRequest request) {
-        String bearerToken = request.getHeader("Authorization");
-        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-            return bearerToken.substring(7);
-        }
-        return null;
-    }
+
 
 }
