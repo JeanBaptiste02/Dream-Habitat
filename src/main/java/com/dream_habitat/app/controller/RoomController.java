@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -34,25 +35,33 @@ public class RoomController {
     /**
      * Creates a new album
      * @param roomDTO The DTO (Data Transfer Object) containing album details
-     * @return ResponseEntity with the created album and HTTP status 201 (CREATED)
+     * @return ResponseEntity with the created rooms and HTTP status 201 (CREATED)
      */
     @PostMapping("/create")
     public ResponseEntity<RoomResponse> createAlbum(@RequestBody RoomDTO roomDTO) {
         if (roomDTO.getTitle() == null || roomDTO.getTitle().isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            return ResponseEntity.badRequest().build(); // Bad Request avec une réponse vide
         }
 
         Optional<User> userOptional = userService.getUserByEmail(roomDTO.getOwner().getEmail());
 
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new RoomResponse());
+        if (!userOptional.isPresent()) {
+            return ResponseEntity.notFound().build();
         }
 
+        User user = userOptional.get();
+
         Room createdRoom = roomService.createRoom(roomDTO);
-        RoomResponse roomResponse = new RoomResponse(createdRoom.getId(),createdRoom.getTitle(),createdRoom.getOwner().getEmail(),createdRoom.getOwner().getName());
+
+        RoomResponse roomResponse = RoomResponse.builder()
+                .id(createdRoom.getId())
+                .title(createdRoom.getTitle())
+                .email(user.getEmail())
+                .name(user.getName())
+                .build();
+
         return ResponseEntity.status(HttpStatus.CREATED).body(roomResponse);
     }
+
 
 }
