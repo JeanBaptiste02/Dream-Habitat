@@ -8,6 +8,7 @@ import com.dream_habitat.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,5 +33,25 @@ public class RoomService {
         room.setTitle(roomDTO.getTitle());
         room.setOwner(user.orElse(null));
         return roomRepository.save(room);
+    }
+
+    /**
+     * Retrieves an album by its ID
+     * @param albumId The album with the specified ID
+     * @return The album with the specified ID
+     * @throws RuntimeException if no album is found with the given ID
+     */
+    public Room getRoomById(Long albumId) {
+        return roomRepository.findById(albumId)
+                .orElseThrow(() -> new RuntimeException("Album not found with ID: " + albumId));
+    }
+
+    /**
+     * Retrieves all albums associated with a specific user ID
+     * @param userId The ID of the user
+     * @return A list of albums associated with the user
+     */
+    public List<Room> getRoomsByUserId(Long userId) {
+        return roomRepository.findRoomsByOwnerId(userId);
     }
 }
