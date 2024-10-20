@@ -54,4 +54,12 @@ public class RoomService {
     public List<Room> getRoomsByUserId(Long userId) {
         return roomRepository.findRoomsByOwnerId(userId);
     }
+
+    /**
+     * Retrieves all albums
+     * @return A list of all albums
+     */
+    public List<Room> getAllRooms() {
+        return roomRepository.findAll();
+    }
 }

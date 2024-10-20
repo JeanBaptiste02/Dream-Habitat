@@ -4,18 +4,17 @@ import com.dream_habitat.app.dto.roomDtOS.RoomDTO;
 import com.dream_habitat.app.dto.roomDtOS.RoomResponse;
 import com.dream_habitat.app.model.Room;
 import com.dream_habitat.app.model.User;
+import com.dream_habitat.app.repository.RoomRepository;
 import com.dream_habitat.app.service.RoomService;
 import com.dream_habitat.app.service.UserService;
 import com.dream_habitat.app.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.data.repository.util.ClassUtils.ifPresent;
@@ -31,6 +30,8 @@ public class RoomController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    private RoomRepository roomRepository;
 
     /**
      * Creates a new album
@@ -61,6 +62,16 @@ public class RoomController {
                 .build();
 
         return ResponseEntity.status(HttpStatus.CREATED).body(roomResponse);
+    }
+
+    /**
+     * Retrieves all albums
+     * @return
+     */
+    @GetMapping("/all")
+    public ResponseEntity<List<Room>> getAllAlbums() {
+        List<Room> rooms = roomService.getAllRooms();
+        return ResponseEntity.ok(rooms);
     }
 
 
