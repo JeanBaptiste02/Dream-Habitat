@@ -1,9 +1,9 @@
-package com.dream_habitat.app.controller;
+package com.dream_habitat.app.controller.userController;
 
 
 
-import com.dream_habitat.app.dto.LoginRequest;
-import com.dream_habitat.app.dto.LoginResponse;
+import com.dream_habitat.app.dto.userDTOS.LoginRequest;
+import com.dream_habitat.app.dto.userDTOS.LoginResponse;
 import com.dream_habitat.app.model.User;
 import com.dream_habitat.app.service.UserService;
 import com.dream_habitat.app.service.jwt.UserServiceImp;
@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 /**
  * Controller for handling user login requests
@@ -70,8 +72,8 @@ public class LoginController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
-        User user = userService.getUserByEmail(loginRequest.getEmail()) ;
-        String jwt = jwtUtil.generateToken(user);
+        Optional<User> user = userService.getUserByEmail(loginRequest.getEmail()) ;
+        String jwt = jwtUtil.generateToken(user.orElse(null));
         LoginResponse loginResponse = new LoginResponse(jwt);
         return ResponseEntity.ok(loginResponse);
     }
