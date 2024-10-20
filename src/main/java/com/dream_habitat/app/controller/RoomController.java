@@ -2,6 +2,7 @@ package com.dream_habitat.app.controller;
 
 import com.dream_habitat.app.dto.roomDtOS.RoomDTO;
 import com.dream_habitat.app.dto.roomDtOS.RoomResponse;
+import com.dream_habitat.app.dto.userDTOS.UserDTO;
 import com.dream_habitat.app.model.Room;
 import com.dream_habitat.app.model.User;
 import com.dream_habitat.app.repository.RoomRepository;
@@ -17,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.stream.Collectors.toList;
 import static org.springframework.data.repository.util.ClassUtils.ifPresent;
 
 @RestController
@@ -54,36 +56,63 @@ public class RoomController {
 
         Room createdRoom = roomService.createRoom(roomDTO);
 
-        RoomResponse roomResponse = RoomResponse.builder()
+        RoomResponse roomResponse = RoomResponse
+                .builder()
                 .id(createdRoom.getId())
                 .title(createdRoom.getTitle())
-                .email(user.getEmail())
-                .name(user.getName())
+                .userOwner(UserDTO.builder()
+                        .id(user.getId())
+                        .email(user.getEmail())
+                        .name(user.getName())
+                        .build())
                 .build();
 
         return ResponseEntity.status(HttpStatus.CREATED).body(roomResponse);
     }
 
-    /**
-     * Retrieves all albums
-     * @return
-     */
     @GetMapping("/all")
-    public ResponseEntity<List<Room>> getAllAlbums() {
+    public ResponseEntity<List<RoomResponse>> getAllAlbums() {
         List<Room> rooms = roomService.getAllRooms();
-        return ResponseEntity.ok(rooms);
+
+        List<RoomResponse> roomResponses = rooms.stream()
+                .map(room -> RoomResponse.builder()
+                        .id(room.getId())
+                        .title(room.getTitle())
+                        .userOwner(UserDTO.builder()
+                                .id(room.getOwner().getId())
+                                .email(room.getOwner().getEmail())
+                                .name(room.getOwner().getName())
+                                .build())
+                        .build())
+                .toList();
+
+        return ResponseEntity.ok(roomResponses);
     }
 
-    /**
-     * Retrieves an album by its ID
-     * @param albumId The ID of the album to retrieve
-     * @return ResponseEntity with the requested album and HTTP status 200 (OK)
-     */
+
+
     @GetMapping("/{albumId}")
-    public ResponseEntity<Room> getAlbumById(@PathVariable Long albumId) {
+    public ResponseEntity<RoomResponse> getAlbumById(@PathVariable Long albumId) {
+        // Récupérer l'objet Room
         Room room = roomService.getRoomById(albumId);
-        return ResponseEntity.ok(room);
+
+        if (room == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+        RoomResponse roomResponse = RoomResponse.builder()
+                .id(room.getId())
+                .title(room.getTitle())
+                .userOwner(UserDTO.builder()
+                        .id(room.getOwner().getId())
+                        .email(room.getOwner().getEmail())
+                        .name(room.getOwner().getName())
+                        .build())
+                .build();
+
+        return ResponseEntity.ok(roomResponse);
     }
+
 
 
 }

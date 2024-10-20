@@ -1,6 +1,7 @@
 package com.dream_habitat.app.dto.roomDtOS;
 
 
+import com.dream_habitat.app.dto.userDTOS.UserDTO;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,6 @@ import lombok.AllArgsConstructor;
 public class RoomResponse {
     private Long id;
     private String title;
-    private String name;
-    private String email;
+    private UserDTO userOwner;
 
 }
