@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
  */
 @Entity
 @Table(name = "photo")
-@NoArgsConstructor
-@AllArgsConstructor
 public class Photo implements Serializable {
 
     @Id
