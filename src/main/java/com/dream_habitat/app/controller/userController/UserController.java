@@ -1,9 +1,9 @@
-package com.dream_habitat.app.controller;
+package com.dream_habitat.app.controller.userController;
 
 
 
-import com.dream_habitat.app.dto.UserDTO;
-import com.dream_habitat.app.dto.UserCreateDTO;
+import com.dream_habitat.app.dto.userDTOS.UserDTO;
+import com.dream_habitat.app.dto.userDTOS.UserCreateDTO;
 import com.dream_habitat.app.model.User;
 import com.dream_habitat.app.service.UserService;
 
@@ -12,7 +12,6 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @RestController

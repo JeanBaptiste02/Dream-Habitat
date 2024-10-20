@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1729264561312-1
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_room
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: title
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: owner_id
+                  type: BIGINT
+            tableName: room
+  - changeSet:
+      id: 1729264561312-2
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: owner_id
+            baseTableName: room
+            constraintName: FK_ROOM_ON_OWNER
+            referencedColumnNames: id
+            referencedTableName: app_user
+
