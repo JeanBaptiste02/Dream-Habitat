@@ -1,12 +1,14 @@
 package com.dream_habitat.app.service;
 
-import com.dream_habitat.app.dto.RoomDTO;
+import com.dream_habitat.app.dto.roomDtOS.RoomDTO;
 import com.dream_habitat.app.model.Room;
 import com.dream_habitat.app.model.User;
 import com.dream_habitat.app.repository.RoomRepository;
 import com.dream_habitat.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class RoomService {
@@ -22,13 +24,13 @@ public class RoomService {
      * @return The created album
      */
     public Room createRoom(RoomDTO roomDTO) {
-        User user = userRepository.findUserByEmail(roomDTO.getOwner().getEmail());
-        if (user == null) {
+        Optional<User> user = userRepository.findByEmail(roomDTO.getOwner().getEmail());
+        if (user.isEmpty()) {
             throw new RuntimeException("User not found with name: " + roomDTO.getOwner().getEmail());
         }
         Room room = new Room();
         room.setTitle(roomDTO.getTitle());
-        room.setOwner(user);
+        room.setOwner(user.orElse(null));
         return roomRepository.save(room);
     }
 }

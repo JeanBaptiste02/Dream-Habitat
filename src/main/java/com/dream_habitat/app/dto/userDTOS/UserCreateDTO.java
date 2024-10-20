@@ -1,4 +1,4 @@
-package com.dream_habitat.app.dto;
+package com.dream_habitat.app.dto.userDTOS;
 
 
 import lombok.Data;

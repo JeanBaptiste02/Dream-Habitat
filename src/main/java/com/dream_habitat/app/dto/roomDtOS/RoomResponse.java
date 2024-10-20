@@ -1,4 +1,4 @@
-package com.dream_habitat.app.dto.userDTOS;
+package com.dream_habitat.app.dto.roomDtOS;
 
 
 import lombok.Data;
@@ -8,11 +8,10 @@ import lombok.AllArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
-
+public class RoomResponse {
     private Long id;
+    private String title;
     private String name;
     private String email;
 
 }
-

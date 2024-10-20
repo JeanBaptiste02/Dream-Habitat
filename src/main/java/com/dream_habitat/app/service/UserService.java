@@ -1,8 +1,8 @@
 package com.dream_habitat.app.service;
 
 
-import com.dream_habitat.app.dto.UserCreateDTO;
-import com.dream_habitat.app.dto.UserDTO;
+import com.dream_habitat.app.dto.userDTOS.UserCreateDTO;
+import com.dream_habitat.app.dto.userDTOS.UserDTO;
 import com.dream_habitat.app.exception.userException.EmailAlreadyExistsException;
 import com.dream_habitat.app.model.User;
 import com.dream_habitat.app.repository.UserRepository;
@@ -42,7 +42,7 @@ public class UserService {
      * @param email The email address of the user to retrieve
      * @return The user with the specified email address
      */
-    public User getUserByEmail(String email){return userRepository.findUserByEmail(email);}
+    public Optional<User> getUserByEmail(String email){return userRepository.findByEmail(email);}
 
     public UserDTO getUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow();

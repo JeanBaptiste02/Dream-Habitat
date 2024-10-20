@@ -1,4 +1,4 @@
-package com.dream_habitat.app.dto;
+package com.dream_habitat.app.dto.roomDtOS;
 
 
 
