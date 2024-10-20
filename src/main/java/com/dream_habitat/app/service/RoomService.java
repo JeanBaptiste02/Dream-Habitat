@@ -62,4 +62,13 @@ public class RoomService {
     public List<Room> getAllRooms() {
         return roomRepository.findAll();
     }
+
+    /**
+     * Retrieves all albums associated with a specific user ID
+     * @param userId The ID of the user
+     * @return A list of albums associated with the user
+     */
+    public List<Room> getAlbumsByUserId(Long userId) {
+        return roomRepository.findRoomsByOwnerId(userId);
+    }
 }

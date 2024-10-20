@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +29,7 @@ public class RoomController {
 
     @Autowired
     UserService userService;
-    @Autowired
-    private RoomRepository roomRepository;
+
 
     /**
      * Creates a new album
@@ -110,5 +110,34 @@ public class RoomController {
     }
 
 
+    /**
+     * Retrieves all albums associated with a specific user ID
+     * @return ResponseEntity with the list of albums associated with the user and HTTP status 200 (OK)
+     */
+    @GetMapping("/user")
+    public ResponseEntity<List<Room>> getAlbumsByUserId(@RequestHeader(value="Authorization") String token) {
+        if (token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7);
+            Long userId = jwtUtil.extractUser(token).getId();
+            List<Room> albums = roomService.getAlbumsByUserId(userId);
+            return ResponseEntity.ok(albums);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+    }
+
+
+    /**
+     * Extracts the JWT token from the HTTP servlet request
+     * @param request The HTTP servlet request
+     * @return The extracted JWT token, or null if not found
+     */
+    public String extractTokenFromRequest(HttpServletRequest request) {
+        String bearerToken = request.getHeader("Authorization");
+        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
 
 }
