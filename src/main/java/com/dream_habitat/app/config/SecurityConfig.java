@@ -30,8 +30,8 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/login", "/api/users/addUser","api/room/create").permitAll()
-                        .requestMatchers("/api/users/**","api/room/all").authenticated()
+                        .requestMatchers("/api/login", "/api/users/addUser").permitAll()
+                        .requestMatchers("/api/users/**","api/room/all","api/room/{albumId}","api/room/create").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(management -> management

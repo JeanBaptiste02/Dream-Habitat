@@ -74,5 +74,16 @@ public class RoomController {
         return ResponseEntity.ok(rooms);
     }
 
+    /**
+     * Retrieves an album by its ID
+     * @param albumId The ID of the album to retrieve
+     * @return ResponseEntity with the requested album and HTTP status 200 (OK)
+     */
+    @GetMapping("/{albumId}")
+    public ResponseEntity<Room> getAlbumById(@PathVariable Long albumId) {
+        Room room = roomService.getRoomById(albumId);
+        return ResponseEntity.ok(room);
+    }
+
 
 }
