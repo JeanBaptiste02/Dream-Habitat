@@ -1,6 +1,9 @@
 package com.dream_habitat.app.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 
 /**
@@ -9,6 +12,8 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "room")
+@Getter
+@Setter
 public class Room implements Serializable {
 
     @Id

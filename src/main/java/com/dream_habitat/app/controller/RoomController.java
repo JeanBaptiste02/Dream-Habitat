@@ -1,11 +1,10 @@
 package com.dream_habitat.app.controller;
 
-import com.dream_habitat.app.dto.roomDtOS.RoomDTO;
-import com.dream_habitat.app.dto.roomDtOS.RoomResponse;
+import com.dream_habitat.app.dto.roomDTOS.RoomDTO;
+import com.dream_habitat.app.dto.roomDTOS.RoomResponse;
 import com.dream_habitat.app.dto.userDTOS.UserDTO;
 import com.dream_habitat.app.model.Room;
 import com.dream_habitat.app.model.User;
-import com.dream_habitat.app.repository.RoomRepository;
 import com.dream_habitat.app.service.RoomService;
 import com.dream_habitat.app.service.UserService;
 import com.dream_habitat.app.utils.JwtUtil;
