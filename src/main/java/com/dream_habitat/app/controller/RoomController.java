@@ -119,7 +119,7 @@ public class RoomController {
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7);
             Long userId = jwtUtil.extractUser(token).getId();
-            List<Room> albums = roomService.getAlbumsByUserId(userId);
+            List<Room> albums = roomService.getRoomsByUserId(userId);
             return ResponseEntity.ok(albums);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
