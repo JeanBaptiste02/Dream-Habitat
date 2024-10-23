@@ -30,7 +30,8 @@ public interface PhotoRepository extends JpaRepository<Photo, Long> {
      * @param roomId The ID of the room
      * @return A list of photos belonging to the specified room
      */
-    List<Photo> findByRoomId(Room roomId);
+    List<Photo> findByRoomId(Long roomId);
+
 
     /**
      * Retrieves a list of photos owned by a specific user

@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -98,18 +99,12 @@ public class PhotoController {
         }
     }
 
-    /**
-     * Extracts the JWT token from the HTTP servlet request
-     * @param request The HTTP servlet request
-     * @return The extracted JWT token, or null if not found
-     */
-    private String extractTokenFromRequest(HttpServletRequest request) {
-        String authHeader = request.getHeader("Authorization");
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            return authHeader.substring(7);
-        }
-        return null;
+    @GetMapping("/room/{roomId}")
+    public ResponseEntity<List<Photo>> getPhotosByRoomId(@PathVariable Long roomId) {
+        List<Photo> photos = photoService.getPhotosByRoomId(roomId);
+        return ResponseEntity.ok(photos);
     }
+
 
 
 }
