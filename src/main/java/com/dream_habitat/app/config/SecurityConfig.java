@@ -31,7 +31,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/api/login", "/api/users/addUser").permitAll()
-                        .requestMatchers("/api/users/**","api/room/all","api/room/{albumId}","api/room/create","api/room/user","api/photo/upload","api/photo/room/{roomId}").authenticated()
+                        .requestMatchers("/api/users/**","api/room/all","api/room/{albumId}","api/room/create","api/room/user","api/photo/upload","api/photo/room/{roomId}","photosData/**","/").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(management -> management
