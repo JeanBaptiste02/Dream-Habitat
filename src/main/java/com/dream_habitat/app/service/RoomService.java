@@ -1,6 +1,6 @@
 package com.dream_habitat.app.service;
 
-import com.dream_habitat.app.dto.roomDtOS.RoomDTO;
+import com.dream_habitat.app.dto.roomDTOS.RoomDTO;
 import com.dream_habitat.app.model.Room;
 import com.dream_habitat.app.model.User;
 import com.dream_habitat.app.repository.RoomRepository;
