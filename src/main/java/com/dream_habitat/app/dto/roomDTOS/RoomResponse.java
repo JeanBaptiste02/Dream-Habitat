@@ -1,4 +1,4 @@
-package com.dream_habitat.app.dto.roomDtOS;
+package com.dream_habitat.app.dto.roomDTOS;
 
 
 import com.dream_habitat.app.dto.userDTOS.UserDTO;

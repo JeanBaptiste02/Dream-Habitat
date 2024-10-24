@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1729463626305-1
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_photo
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: path
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: date
+                  type: DATETIME
+              - column:
+                  constraints:
+                    nullable: false
+                  name: room_id
+                  type: BIGINT
+              - column:
+                  name: owner_id
+                  type: BIGINT
+            tableName: photo
+  - changeSet:
+      id: 1729463626305-2
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: owner_id
+            baseTableName: photo
+            constraintName: FK_PHOTO_ON_OWNER
+            referencedColumnNames: id
+            referencedTableName: app_user
+  - changeSet:
+      id: 1729463626305-3
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: room_id
+            baseTableName: photo
+            constraintName: FK_PHOTO_ON_ROOM
+            referencedColumnNames: id
+            referencedTableName: room
+

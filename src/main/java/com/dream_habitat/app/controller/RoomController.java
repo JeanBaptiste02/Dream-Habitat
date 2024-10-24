@@ -1,11 +1,10 @@
 package com.dream_habitat.app.controller;
 
-import com.dream_habitat.app.dto.roomDtOS.RoomDTO;
-import com.dream_habitat.app.dto.roomDtOS.RoomResponse;
+import com.dream_habitat.app.dto.roomDTOS.RoomDTO;
+import com.dream_habitat.app.dto.roomDTOS.RoomResponse;
 import com.dream_habitat.app.dto.userDTOS.UserDTO;
 import com.dream_habitat.app.model.Room;
 import com.dream_habitat.app.model.User;
-import com.dream_habitat.app.repository.RoomRepository;
 import com.dream_habitat.app.service.RoomService;
 import com.dream_habitat.app.service.UserService;
 import com.dream_habitat.app.utils.JwtUtil;
@@ -127,17 +126,6 @@ public class RoomController {
     }
 
 
-    /**
-     * Extracts the JWT token from the HTTP servlet request
-     * @param request The HTTP servlet request
-     * @return The extracted JWT token, or null if not found
-     */
-    public String extractTokenFromRequest(HttpServletRequest request) {
-        String bearerToken = request.getHeader("Authorization");
-        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-            return bearerToken.substring(7);
-        }
-        return null;
-    }
+
 
 }
