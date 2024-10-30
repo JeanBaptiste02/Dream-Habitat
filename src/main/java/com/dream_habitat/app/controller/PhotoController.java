@@ -101,7 +101,29 @@ public class PhotoController {
         List<Photo> photos = photoService.getPhotosByRoomId(roomId);
         return ResponseEntity.ok(photos);
     }
+    
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Photo> getPhotoById(@PathVariable Long id) {
+        Photo photo = photoService.findPhotoById(id);
+        return photo != null ? ResponseEntity.ok(photo) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 
-
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deletePhoto(@PathVariable Long id) {
+        if (photoService.deletePhoto(id)) {
+            return ResponseEntity.ok("Photo deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Photo not found");
+        }
+    }
+    
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Photo> updatePhoto(@PathVariable Long id, 
+                                             @RequestParam(required = false) String name,
+                                             @RequestParam(required = false) String description,
+                                             @RequestParam(required = false) MultipartFile file) throws IllegalStateException, IOException {
+        Photo updatedPhoto = photoService.updatePhoto(id, name, description, file);
+        return updatedPhoto != null ? ResponseEntity.ok(updatedPhoto) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 
 }
