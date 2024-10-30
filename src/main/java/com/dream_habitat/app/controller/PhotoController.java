@@ -116,5 +116,14 @@ public class PhotoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Photo not found");
         }
     }
+    
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Photo> updatePhoto(@PathVariable Long id, 
+                                             @RequestParam(required = false) String name,
+                                             @RequestParam(required = false) String description,
+                                             @RequestParam(required = false) MultipartFile file) {
+        Photo updatedPhoto = photoService.updatePhoto(id, name, description, file);
+        return updatedPhoto != null ? ResponseEntity.ok(updatedPhoto) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 
 }
