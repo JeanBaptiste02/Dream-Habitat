@@ -101,7 +101,12 @@ public class PhotoController {
         List<Photo> photos = photoService.getPhotosByRoomId(roomId);
         return ResponseEntity.ok(photos);
     }
-
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<Photo> getPhotoById(@PathVariable Long id) {
+        Photo photo = photoService.findPhotoById(id);
+        return photo != null ? ResponseEntity.ok(photo) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 
 
 }

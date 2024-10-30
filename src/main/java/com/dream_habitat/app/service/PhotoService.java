@@ -37,5 +37,11 @@ public class PhotoService {
   public List<Photo> getPhotosByRoomId(Long roomId) {
         return photoRepository.findByRoomId(roomId);
     }
+  
+  
+  public Photo findPhotoById(Long id) {
+      return photoRepository.findPhotoById(id);
+  }
 
+  
 }
