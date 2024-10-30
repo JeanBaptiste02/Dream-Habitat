@@ -102,11 +102,19 @@ public class PhotoController {
         return ResponseEntity.ok(photos);
     }
     
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<Photo> getPhotoById(@PathVariable Long id) {
         Photo photo = photoService.findPhotoById(id);
         return photo != null ? ResponseEntity.ok(photo) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deletePhoto(@PathVariable Long id) {
+        if (photoService.deletePhoto(id)) {
+            return ResponseEntity.ok("Photo deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Photo not found");
+        }
+    }
 
 }

@@ -43,5 +43,12 @@ public class PhotoService {
       return photoRepository.findPhotoById(id);
   }
 
+  public boolean deletePhoto(Long id) {
+      if (photoRepository.existsById(id)) {
+          photoRepository.deleteById(id);
+          return true;
+      }
+      return false;
+  }
   
 }
