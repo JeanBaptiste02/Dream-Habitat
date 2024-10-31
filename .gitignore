@@ -34,3 +34,6 @@ build/
 
 ### data photo ###
 .photosData
+
+### application.properties
+src/main/resources/application.properties
