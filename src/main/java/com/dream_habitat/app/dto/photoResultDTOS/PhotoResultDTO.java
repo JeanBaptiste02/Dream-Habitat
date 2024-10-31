@@ -1,7 +1,5 @@
 package com.dream_habitat.app.dto.photoResultDTOS;
 
-package com.dream_habitat.app.dto.photoDTOS;
-
 import com.dream_habitat.app.dto.photoDTOS.PhotoDTO;
 import com.dream_habitat.app.model.Photo;
 import com.dream_habitat.app.model.PhotoResult;
@@ -14,7 +12,7 @@ import java.time.LocalDateTime;
 
 /**
  * Data Transfer Object (DTO) for representing photo information
- * @author Jean-Baptiste, Kamel, Victor, Mahdi
+ * @author Jean-Baptiste, Kamel, Victor
  */
 @Data
 @NoArgsConstructor
