@@ -1,0 +1,76 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1730370310453-1
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_photoresult
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: path
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: date
+                  type: DATETIME
+              - column:
+                  constraints:
+                    nullable: false
+                  name: room_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: photo_id
+                  type: BIGINT
+              - column:
+                  name: owner_id
+                  type: BIGINT
+            tableName: photo_result
+  - changeSet:
+      id: 1730370310453-2
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: owner_id
+            baseTableName: photo_result
+            constraintName: FK_PHOTORESULT_ON_OWNER
+            referencedColumnNames: id
+            referencedTableName: app_user
+  - changeSet:
+      id: 1730370310453-3
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: photo_id
+            baseTableName: photo_result
+            constraintName: FK_PHOTORESULT_ON_PHOTO
+            referencedColumnNames: id
+            referencedTableName: photo
+  - changeSet:
+      id: 1730370310453-4
+      author: talatizi-kamel
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: room_id
+            baseTableName: photo_result
+            constraintName: FK_PHOTORESULT_ON_ROOM
+            referencedColumnNames: id
+            referencedTableName: room
+
