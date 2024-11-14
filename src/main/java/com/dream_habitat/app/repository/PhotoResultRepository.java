@@ -22,4 +22,11 @@ public interface PhotoResultRepository extends JpaRepository<PhotoResult, Long> 
      * @return A list of photos belonging to the specified room
      */
     List<PhotoResult> findByRoomId(Long roomId);
+
+    /**
+     * Retrieves a list of photos belonging to a specific album
+     * @param photoId The ID of the room
+     * @return A list of photos belonging to the specified room
+     */
+    PhotoResult findByPhotoId(Long photoId);
 }

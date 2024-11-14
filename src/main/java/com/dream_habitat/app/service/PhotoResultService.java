@@ -39,5 +39,14 @@ public class PhotoResultService {
         return photoResultRepository.findByRoomId(roomId);
     }
 
+    /**
+     * Retrieves photos by room ID
+     * @param photoId The ID of the album
+     * @return A list of photos belonging to the specified album
+     */
+    public PhotoResult getPhotosByPhotoId(Long photoId) {
+        return photoResultRepository.findByPhotoId(photoId);
+    }
+
 }
 
