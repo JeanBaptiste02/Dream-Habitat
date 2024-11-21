@@ -16,7 +16,7 @@ sync_to_github:
     - cd repo
     - git config user.name "GitLab CI"
     - git config user.email "ci@example.com"
-    - git add back/
+    - git add backend/
     - |
       if ! git commit -m "Sync front from GitLab: $CI_COMMIT_SHORT_SHA"; then
         echo "No changes to commit"
