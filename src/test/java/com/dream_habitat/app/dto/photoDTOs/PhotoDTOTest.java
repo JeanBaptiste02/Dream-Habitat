@@ -16,14 +16,11 @@ class PhotoDTOTest {
 
 	@Test
 	void testPhotoDTOConstructorFromPhoto() {
-	    // Mocking dependencies
 	    Room mockRoom = mock(Room.class);
 	    User mockOwner = mock(User.class);
 
-	    // Mocking the Photo object
 	    Photo photo = mock(Photo.class);
 
-	    // Stubbing methods on the mock
 	    when(photo.getId()).thenReturn(1L);
 	    when(photo.getName()).thenReturn("Test Photo");
 	    when(photo.getPath()).thenReturn("/photos/test.jpg");
@@ -32,10 +29,8 @@ class PhotoDTOTest {
 	    when(photo.getRoom()).thenReturn(mockRoom);
 	    when(photo.getOwner()).thenReturn(mockOwner);
 
-	    // Creating PhotoDTO from the mocked Photo
 	    PhotoDTO photoDTO = new PhotoDTO(photo);
 
-	    // Assertions
 	    assertEquals(1L, photoDTO.getId());
 	    assertEquals("Test Photo", photoDTO.getName());
 	    assertEquals("/photos/test.jpg", photoDTO.getPath());
