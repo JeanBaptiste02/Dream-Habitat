@@ -179,3 +179,14 @@ Le contrôleur `RoomController` permet de gérer les rooms (pièces) de l'applic
         - `200 OK` avec la liste des rooms de l'utilisateur.
         - `401 UNAUTHORIZED` si le token est manquant ou invalide.
 
+#  Pour la configuration du back
+
+- ajouter un fichier`.env` à la racine du projet
+```
+PWD=Mettez votre mot de passe pour la connexion à la base de donnée
+```
+- ajouter au fichier `/src/main/resources/application.properties`
+  à la ligne ou se trouve spring.datasource.password mettez
+```
+spring.datasource.password= ${PWD}
+```
