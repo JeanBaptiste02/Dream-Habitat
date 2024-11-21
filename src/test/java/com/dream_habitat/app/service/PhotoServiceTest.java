@@ -129,10 +129,14 @@ public class PhotoServiceTest {
         Photo photo = new Photo();
         photo.setId(1L);
         photo.setName("Old Photo");
+<<<<<<< HEAD
         photo.setDescription("Old Description");
 
         // Utilisation du constructeur de User avec les trois paramètres nécessaires
         photo.setOwner(new User("owner1", "owner1@example.com", "password123"));
+=======
+        photo.setOwner(new User("owner1", "owner@epitech.eu", "epitech"));
+>>>>>>> 9ac0c21 (test: photo service unit test updatephoto method pending)
 
         // Simuler un fichier MultipartFile
         MultipartFile file = mock(MultipartFile.class);
@@ -140,6 +144,7 @@ public class PhotoServiceTest {
 
         // Configurer le comportement du mock pour findPhotoById
         when(photoRepository.findPhotoById(1L)).thenReturn(photo);
+<<<<<<< HEAD
 
         // Simuler l'appel de transferTo sans erreur (évite l'exécution réelle du code qui pose problème)
         doNothing().when(file).transferTo(any(File.class));
@@ -165,6 +170,30 @@ public class PhotoServiceTest {
 
 
 
+=======
+        when(photoRepository.save(photo)).thenReturn(photo);
+
+        // Au lieu d'utiliser Path, simuler la création du fichier correctement
+        File tempFile = mock(File.class);
+        when(tempFile.exists()).thenReturn(false);  // Simuler que le fichier n'existe pas
+        when(tempFile.getAbsolutePath()).thenReturn("path/to/newPhoto.jpg");
+
+        // Simuler l'appel de transferTo sans erreur
+        doNothing().when(file).transferTo(any(File.class));
+
+        // Appeler la méthode updatePhoto sur le service
+        Photo updatedPhoto = photoService.updatePhoto(1L, "Updated Photo", "New Description", file);
+
+        // Vérifications
+        assertNotNull(updatedPhoto);
+        assertEquals("Updated Photo", updatedPhoto.getName());
+        assertEquals("New Description", updatedPhoto.getDescription());
+
+        verify(photoRepository, times(1)).save(photo);
+    }
+
+
+>>>>>>> 9ac0c21 (test: photo service unit test updatephoto method pending)
     @Test
     public void testUpdatePhoto_Failure_PhotoNotFound() throws IOException {
         // Configurer le comportement du mock pour findPhotoById
