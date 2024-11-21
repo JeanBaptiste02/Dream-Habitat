@@ -26,7 +26,7 @@ public class PhotoResultDTO {
     private LocalDateTime date;
     private Room room_id;
     private User owner_id;
-    private PhotoDTO photo;
+    private Photo photo;
 
     /**
      * Constructs a PhotoDTO object from a Photo entity
@@ -39,8 +39,8 @@ public class PhotoResultDTO {
         this.description = photoResult.getDescription();
         this.date = photoResult.getDate();
         this.room_id = photoResult.getRoom();
-        this.owner_id = getOwner_id();
-        this.photo = getPhoto();
+        this.owner_id = photoResult.getOwner();
+        this.photo = photoResult.getPhoto();
 
     }
 }

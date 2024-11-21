@@ -36,8 +36,8 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Ajout de la configuration CORS
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/login", "/api/users/addUser").permitAll()
-                        .requestMatchers("/api/users/**", "api/room/all", "api/room/{albumId}", "api/room/create", "api/room/user", "api/photo/upload", "api/photo/room/{roomId}", "photosData/**", "/").authenticated()
+                        .requestMatchers("/api/login", "/api/users/addUser","photosData/**").permitAll()
+                        .requestMatchers("/api/users/**", "api/room/all", "api/room/{albumId}", "api/room/create", "api/room/user", "api/photo/upload", "api/photo/room/{roomId}", "/","api/interior/generate","api/interior/result", "api/interior/res").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(management -> management
