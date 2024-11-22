@@ -52,7 +52,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "https://dreamhabitat.victor-zhang.fr", "http://localhost:3000", "http://localhost:8080")); // Ajouter votre domaine frontend ici
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "https://dreamhabitat.victor-zhang.fr", "http://localhost:3000", "http://localhost:8080", "http://localhost:80")); // Ajouter votre domaine frontend ici
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Méthodes autorisées
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type")); // En-têtes autorisés
         configuration.setAllowCredentials(true); // Autoriser les cookies
