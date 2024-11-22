@@ -29,6 +29,8 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +57,7 @@ public class InteriorDecoratorService {
         try {
             // Étape 1 : Appeler l'API pour générer le design d'intérieur
             GenerateDto response = generateInteriorDesign(
-                     getFileByPath("/home/talatizi-kamel/Bureau/epitech/dream-habitat/"+ URLDecoder.decode(photo.getPath(), StandardCharsets.UTF_8)),
+                     getFileByPath(getProjectRootPath()+ URLDecoder.decode(photo.getPath(), StandardCharsets.UTF_8)),
                     roomType,
                     style,
                     upscale,
@@ -266,6 +268,18 @@ public class InteriorDecoratorService {
                 FileCopyUtils.copy(file, dest);
             }
         };
+    }
+    public static String getProjectRootPath() {
+        try {
+            // Récupérer le chemin absolu du répertoire de travail actuel
+            Path projectRootPath = Paths.get("").toAbsolutePath();
+
+            // Retourner le chemin sous forme de chaîne
+            return projectRootPath.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // En cas d'erreur
+        }
     }
 
     }
