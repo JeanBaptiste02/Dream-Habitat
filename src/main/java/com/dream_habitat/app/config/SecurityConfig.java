@@ -35,16 +35,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Ajout de la configuration CORS
-                .csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable CORS
+                .csrf(csrf -> csrf.disable()) // Disable CSRF for stateless APIs
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/login", "/api/users/addUser","photosData/**").permitAll()
-                        .requestMatchers("/api/users/**", "api/room/all", "api/room/{albumId}", "api/room/create", "api/room/user", "api/photo/upload", "api/photo/room/{roomId}", "/","api/interior/generate","api/interior/result", "api/interior/res").authenticated()
+                        .requestMatchers("/api/login", "/api/users/addUser", "photosData/**").permitAll() // Public routes
+                        .requestMatchers("/api/users/**", "api/room/all", "api/room/{albumId}", "api/room/create", "api/room/user", "api/photo/upload", "api/photo/room/{roomId}", "/", "api/interior/generate", "api/interior/result", "api/interior/res").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(management -> management
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Stateless sessions
+                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class); // Add JWT filter
 
         return http.build();
     }
@@ -52,11 +52,24 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "https://dreamhabitat.victor-zhang.fr", "http://localhost:3000", "http://localhost:8080", "http://localhost:80")); // Ajouter votre domaine frontend ici
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Méthodes autorisées
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type")); // En-têtes autorisés
-        configuration.setAllowCredentials(true); // Autoriser les cookies
+        configuration.setAllowedOrigins(Arrays.asList(
+                "http://localhost:5173",
+                "https://dreamhabitat.victor-zhang.fr",
+                "http://localhost:3000",
+                "http://localhost:8080",
+                "http://localhost:80"
+        )); // Add all allowed origins explicitly
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Allowed HTTP methods
+        configuration.setAllowedHeaders(Arrays.asList(
+                "Authorization", 
+                "Content-Type", 
+                "Access-Control-Allow-Headers", 
+                "Access-Control-Allow-Origin"
+        )); // Allowed headers
+        configuration.setExposedHeaders(Arrays.asList("Authorization")); // Expose specific headers in responses
+        configuration.setAllowCredentials(true); // Allow credentials for cookies
         System.out.println("CORS configuration applied: " + configuration.toString());
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
@@ -64,18 +77,18 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(); // Use BCrypt for password hashing
     }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
-        return configuration.getAuthenticationManager();
+        return configuration.getAuthenticationManager(); // Default authentication manager
     }
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
-        configurer.setLocation(new FileSystemResource(".env"));
+        configurer.setLocation(new FileSystemResource(".env")); // Use external .env for properties
         return configurer;
     }
 }
