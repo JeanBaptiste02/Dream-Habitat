@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "interior.decorator.api.url",
+    "type": "java.lang.String",
+    "description": "A description for 'interior.decorator.api.url'"
+  },
+  {
+    "name": "interior.decorator.api.key",
+    "type": "java.lang.String",
+    "description": "A description for 'interior.decorator.api.key'"
+  }
+]}
