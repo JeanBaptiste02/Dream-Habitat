@@ -23,6 +23,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.*;
 import java.net.URLDecoder;
@@ -37,25 +38,33 @@ import java.util.Objects;
 @Service
 public class InteriorDecoratorService {
 
-    @Value("${interior.decorator.api.url}")
+    @Value("${API_URL}")
     private String apiUrl;
 
-    @Value("${interior.decorator.api.key}")
+    @Value("${API_KEY}")
     private String apiKey;
+
+
 
     private final RestTemplate restTemplate;
     private final PhotoResultRepository photoResultRepository;
 
     public InteriorDecoratorService(RestTemplateBuilder restTemplateBuilder, PhotoResultRepository photoResultRepository) {
+        Dotenv dotenv = Dotenv.load();
+        this.apiUrl = dotenv.get("API_URL");
+        this.apiKey = dotenv.get("API_KEY");
+
         this.restTemplate = restTemplateBuilder.build();
         this.photoResultRepository = photoResultRepository;
+
+
     }
 
     public PhotoResultDTO generate(Photo photo, String roomType, String style, boolean upscale, String model) {
         try {
             // Étape 1 : Appeler l'API pour générer le design d'intérieur
             GenerateDto response = generateInteriorDesign(
-                     getFileByPath("/home/talatizi-kamel/Bureau/epitech/dream-habitat/"+ URLDecoder.decode(photo.getPath(), StandardCharsets.UTF_8)),
+                     getFileByPath("dream-habitat/"+ URLDecoder.decode(photo.getPath(), StandardCharsets.UTF_8)),
                     roomType,
                     style,
                     upscale,
