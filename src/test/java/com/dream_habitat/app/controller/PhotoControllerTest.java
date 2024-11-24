@@ -85,27 +85,22 @@ class PhotoControllerTest {
         String token = "Bearer validToken";
         String extractedToken = "validToken";
 
-        // Mock du token JWT
         when(jwtUtil.extractUser(extractedToken)).thenReturn(testUser);
 
-        // Mock des services utilisateur
         when(userService.getUserById(testUser.getId())).thenReturn(testUserDTO);
         when(userService.getUserByEmail(testUser.getEmail())).thenReturn(Optional.of(testUser));
 
-        // Simulation de fichier multipart pour éviter l'exception de segment null
         when(file.getOriginalFilename()).thenReturn("test.jpg");
         when(file.isEmpty()).thenReturn(false);
 
-        // Mock du transfert du fichier (simulation de transfert réussi)
         doNothing().when(file).transferTo(any(Path.class));
 
-        // Appel du contrôleur
         ResponseEntity<String> response = photoController.uploadPhoto(
                 file, "test.jpg", "Description", testRoom, token);
 
-        // Assertions
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Photo uploaded successfully", response.getBody());
+
         verify(photoService, times(1)).savePhoto(any(Photo.class));
     }
 
