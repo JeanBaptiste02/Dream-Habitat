@@ -23,7 +23,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.*;
 import java.net.URLDecoder;
@@ -40,26 +39,18 @@ import java.util.Objects;
 @Service
 public class InteriorDecoratorService {
 
-    @Value("${API_URL}")
+    @Value("${interior.decorator.api.url}")
     private String apiUrl;
 
-    @Value("${API_KEY}")
+    @Value("${interior.decorator.api.key}")
     private String apiKey;
-
-
 
     private final RestTemplate restTemplate;
     private final PhotoResultRepository photoResultRepository;
 
     public InteriorDecoratorService(RestTemplateBuilder restTemplateBuilder, PhotoResultRepository photoResultRepository) {
-        Dotenv dotenv = Dotenv.load();
-        this.apiUrl = dotenv.get("API_URL");
-        this.apiKey = dotenv.get("API_KEY");
-
         this.restTemplate = restTemplateBuilder.build();
         this.photoResultRepository = photoResultRepository;
-
-
     }
 
     public PhotoResultDTO generate(Photo photo, String roomType, String style, boolean upscale, String model) {
