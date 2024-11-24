@@ -85,6 +85,7 @@ class PhotoControllerTest {
         String token = "Bearer validToken";
         String extractedToken = "validToken";
 
+<<<<<<< HEAD
         // Mock du token JWT
         when(jwtUtil.extractUser(extractedToken)).thenReturn(testUser);
 
@@ -108,6 +109,18 @@ class PhotoControllerTest {
         assertEquals("Photo uploaded successfully", response.getBody());
 
         // Vérification des interactions
+=======
+        when(jwtUtil.extractUser(extractedToken)).thenReturn(testUser);
+        when(userService.getUserById(testUser.getId())).thenReturn(testUserDTO);
+        when(userService.getUserByEmail(testUser.getEmail())).thenReturn(Optional.of(testUser));
+        doNothing().when(file).transferTo((Path) any(File.class));
+
+        ResponseEntity<String> response = photoController.uploadPhoto(
+                file, "test.jpg", "Description", testRoom, token);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Photo uploaded successfully", response.getBody());
+>>>>>>> 8dd959d (test: unit testing photoController)
         verify(photoService, times(1)).savePhoto(any(Photo.class));
     }
 
