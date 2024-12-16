@@ -4,7 +4,8 @@ import com.dream_habitat.app.model.Photo;
 import com.dream_habitat.app.model.Room;
 import com.dream_habitat.app.repository.PhotoRepository;
 import com.dream_habitat.app.repository.UserRepository;
-import com.jayway.jsonpath.internal.Path;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import io.jsonwebtoken.io.IOException;
 
@@ -105,8 +106,8 @@ public class PhotoService {
 
 	                // Save the new file
 	                String newFileName = file.getOriginalFilename();
-	                Path newFilePath = (Path) Paths.get(ownerIdDirPath, newFileName);
-	                file.transferTo(((java.nio.file.Path) newFilePath).toFile());
+	                Path newFilePath = Paths.get(ownerIdDirPath, newFileName);
+	                file.transferTo(newFilePath.toFile());
 
 	                // Update the photo's path
 	                String encodedFileName = URLEncoder.encode(newFileName, StandardCharsets.UTF_8.toString());
