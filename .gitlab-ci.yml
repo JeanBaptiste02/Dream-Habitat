@@ -44,7 +44,7 @@ sync_to_github:
     - find . -type f
     - echo "Syncing files with rsync"
     - mkdir temp_sync
-    - cp -r ./ temp_sync/
+    - cp -r ./* temp_sync/
     - rsync -av --delete temp_sync/ repo/backend/
     - rm -rf temp_sync
     - cd repo
