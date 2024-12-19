@@ -27,7 +27,6 @@
 #     - main
 
 
-
 stages:
   - deploy
 
@@ -39,17 +38,21 @@ sync_to_github:
     - echo "$GITHUB_SSH_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-    - ls
+    - echo "Cloning GitHub repository"
     - git clone --depth 1 git@github.com:YoubaDJAOUTI/DreamHabitat.git repo
     - echo "Listing files before rsync"
     - find . -type f
-    - rsync -a --delete ./ repo/backend/
+    - echo "Syncing files with rsync"
+    - mkdir temp_sync
+    - cp -r ./ temp_sync/
+    - rsync -av --delete temp_sync/ repo/backend/
+    - rm -rf temp_sync
     - cd repo
     - git config user.name "GitLab CI"
     - git config user.email "ci@example.com"
     - git add backend/
     - |
-      if ! git commit -m "Sync front from GitLab: $CI_COMMIT_SHORT_SHA"; then
+      if ! git commit -m "Sync from GitLab: $CI_COMMIT_SHORT_SHA"; then
         echo "No changes to commit"
       fi
     - git push origin main
