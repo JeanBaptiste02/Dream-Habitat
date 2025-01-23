@@ -1,0 +1,85 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+utils.\+filters.\+Jwt\+Request\+Filter Class Reference}
+\hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter}{}\label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter}\index{com.dream\_habitat.app.utils.filters.JwtRequestFilter@{com.dream\_habitat.app.utils.filters.JwtRequestFilter}}
+
+
+Filter for processing JWT requests \+: It validates the tokens and sets up Spring Security\textquotesingle{}s authentication context if the token is valid.  
+
+
+Inheritance diagram for com.\+dream\+\_\+habitat.\+app.\+utils.\+filters.\+Jwt\+Request\+Filter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter_a35840dfeeff5829b2b8cbdea425cdd9c}{Jwt\+Request\+Filter}} (\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}{User\+Service\+Imp}} user\+Service\+Imp, \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util}{Jwt\+Util}} jwt\+Util)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter}{Jwt\+Request\+Filter} with the provided \doxylink{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}{User\+Service\+Imp} and \doxylink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util}{Jwt\+Util}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter_a360b865c5a6e148abfab1c8f3b4605e1}{do\+Filter\+Internal}} (jakarta.\+servlet.\+http.\+Http\+Servlet\+Request request, jakarta.\+servlet.\+http.\+Http\+Servlet\+Response response, jakarta.\+servlet.\+Filter\+Chain filter\+Chain)  throws jakarta.\+servlet.\+Servlet\+Exception, IOException 
+\begin{DoxyCompactList}\small\item\em Filters incoming requests to process JWT tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Filter for processing JWT requests \+: It validates the tokens and sets up Spring Security\textquotesingle{}s authentication context if the token is valid. 
+
+\begin{DoxyAuthor}{Author}
+Jean-\/\+Baptiste, Kamel, Victor, Mahdi 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter_a35840dfeeff5829b2b8cbdea425cdd9c}\index{com.dream\_habitat.app.utils.filters.JwtRequestFilter@{com.dream\_habitat.app.utils.filters.JwtRequestFilter}!JwtRequestFilter@{JwtRequestFilter}}
+\index{JwtRequestFilter@{JwtRequestFilter}!com.dream\_habitat.app.utils.filters.JwtRequestFilter@{com.dream\_habitat.app.utils.filters.JwtRequestFilter}}
+\doxysubsubsection{\texorpdfstring{JwtRequestFilter()}{JwtRequestFilter()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter_a35840dfeeff5829b2b8cbdea425cdd9c} 
+com.\+dream\+\_\+habitat.\+app.\+utils.\+filters.\+Jwt\+Request\+Filter.\+Jwt\+Request\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}{User\+Service\+Imp}}}]{user\+Service\+Imp}{, }\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util}{Jwt\+Util}}}]{jwt\+Util}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a new \doxylink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter}{Jwt\+Request\+Filter} with the provided \doxylink{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}{User\+Service\+Imp} and \doxylink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util}{Jwt\+Util}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Service\+Imp} & The user service implementation \\
+\hline
+{\em jwt\+Util} & The JWT utility \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter_a360b865c5a6e148abfab1c8f3b4605e1}\index{com.dream\_habitat.app.utils.filters.JwtRequestFilter@{com.dream\_habitat.app.utils.filters.JwtRequestFilter}!doFilterInternal@{doFilterInternal}}
+\index{doFilterInternal@{doFilterInternal}!com.dream\_habitat.app.utils.filters.JwtRequestFilter@{com.dream\_habitat.app.utils.filters.JwtRequestFilter}}
+\doxysubsubsection{\texorpdfstring{doFilterInternal()}{doFilterInternal()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1filters_1_1_jwt_request_filter_a360b865c5a6e148abfab1c8f3b4605e1} 
+void com.\+dream\+\_\+habitat.\+app.\+utils.\+filters.\+Jwt\+Request\+Filter.\+do\+Filter\+Internal (\begin{DoxyParamCaption}\item[{jakarta.\+servlet.\+http.\+Http\+Servlet\+Request}]{request}{, }\item[{jakarta.\+servlet.\+http.\+Http\+Servlet\+Response}]{response}{, }\item[{jakarta.\+servlet.\+Filter\+Chain}]{filter\+Chain}{}\end{DoxyParamCaption}) throws jakarta.\+servlet.\+Servlet\+Exception, IOException\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Filters incoming requests to process JWT tokens. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The HTTP servlet request \\
+\hline
+{\em response} & The HTTP servlet response \\
+\hline
+{\em filter\+Chain} & The filter chain \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Servlet\+Exception} & If an error occurs while processing the request \\
+\hline
+{\em IOException} & If an I/O error occurs while processing the request \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/utils/filters/\mbox{\hyperlink{_jwt_request_filter_8java}{Jwt\+Request\+Filter.\+java}}\end{DoxyCompactItemize}

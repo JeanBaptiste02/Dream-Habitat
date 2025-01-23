@@ -1,0 +1,182 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository Interface Reference}
+\hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository}{}\label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+
+
+Repository interface for managing photo entities.  
+
+
+Inheritance diagram for com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a827fe97b5978ad07b7ef30980da46683}{find\+Photo\+By\+Id}} (Long id)
+\begin{DoxyCompactList}\small\item\em Retrieves a photo by its ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a56390a95b2000d014d8742ca385aadb3}{find\+Photo\+By\+Path}} (String path)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_afb6b80dd9bff77a7a5ef12224a5b0f24}{find\+By\+Room\+Id}} (Long room\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves a list of photos belonging to a specific album. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_aefe4bdb36bf72cc1aede26362e18b974}{find\+By\+Owner\+Id\+\_\+\+Id}} (Long user\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves a list of photos owned by a specific user. \end{DoxyCompactList}\item 
+List$<$ String $>$ \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a6f17e63f0f74165ba3afc69b9877f06f}{find\+Photo\+Paths\+By\+Owner\+\_\+id}} (long user\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves the paths of photos owned by a specific user. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a8fb255429b3fecd38962168678711a20}{find\+By\+Owner\+Id\+And\+Room\+Id}} (Long owner\+Id, \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} room\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves a list of photos owned by a specific user and belonging to a specific room. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_aabd562f5458aafa7d3d133ea4c12023a}{get\+Public\+Photos\+By\+Owner\+Id}} (Long user\+Id)
+\begin{DoxyCompactList}\small\item\em Retieves an image by owner\+Id. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a71ff133453787a120d95db32171ec84d}{find\+Byroom\+Id\+Order\+By\+Date\+Desc}} (\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} room)
+\begin{DoxyCompactList}\small\item\em Retieves the last image of a specific room. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Repository interface for managing photo entities. 
+
+\begin{DoxyAuthor}{Author}
+Jean-\/\+Baptiste, Kamel, Victor 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_aefe4bdb36bf72cc1aede26362e18b974}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}!findByOwnerId\_Id@{findByOwnerId\_Id}}
+\index{findByOwnerId\_Id@{findByOwnerId\_Id}!com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+\doxysubsubsection{\texorpdfstring{findByOwnerId\_Id()}{findByOwnerId\_Id()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_aefe4bdb36bf72cc1aede26362e18b974} 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository.\+find\+By\+Owner\+Id\+\_\+\+Id (\begin{DoxyParamCaption}\item[{Long}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a list of photos owned by a specific user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & The ID of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of photos owned by the specified user 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a8fb255429b3fecd38962168678711a20}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}!findByOwnerIdAndRoomId@{findByOwnerIdAndRoomId}}
+\index{findByOwnerIdAndRoomId@{findByOwnerIdAndRoomId}!com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+\doxysubsubsection{\texorpdfstring{findByOwnerIdAndRoomId()}{findByOwnerIdAndRoomId()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a8fb255429b3fecd38962168678711a20} 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository.\+find\+By\+Owner\+Id\+And\+Room\+Id (\begin{DoxyParamCaption}\item[{Long}]{owner\+Id}{, }\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}}}]{room\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a list of photos owned by a specific user and belonging to a specific room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\+Id} & The ID of the owner user \\
+\hline
+{\em room\+Id} & The ID of the room \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of photos owned by the specified user and belonging to the specified room 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_afb6b80dd9bff77a7a5ef12224a5b0f24}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}!findByRoomId@{findByRoomId}}
+\index{findByRoomId@{findByRoomId}!com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+\doxysubsubsection{\texorpdfstring{findByRoomId()}{findByRoomId()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_afb6b80dd9bff77a7a5ef12224a5b0f24} 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository.\+find\+By\+Room\+Id (\begin{DoxyParamCaption}\item[{Long}]{room\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a list of photos belonging to a specific album. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of photos belonging to the specified room 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a71ff133453787a120d95db32171ec84d}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}!findByroomIdOrderByDateDesc@{findByroomIdOrderByDateDesc}}
+\index{findByroomIdOrderByDateDesc@{findByroomIdOrderByDateDesc}!com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+\doxysubsubsection{\texorpdfstring{findByroomIdOrderByDateDesc()}{findByroomIdOrderByDateDesc()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a71ff133453787a120d95db32171ec84d} 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository.\+find\+Byroom\+Id\+Order\+By\+Date\+Desc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}}}]{room}{}\end{DoxyParamCaption})}
+
+
+
+Retieves the last image of a specific room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a827fe97b5978ad07b7ef30980da46683}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}!findPhotoById@{findPhotoById}}
+\index{findPhotoById@{findPhotoById}!com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+\doxysubsubsection{\texorpdfstring{findPhotoById()}{findPhotoById()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a827fe97b5978ad07b7ef30980da46683} 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository.\+find\+Photo\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a photo by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the photo to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The photo entity if found, otherwise null 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a56390a95b2000d014d8742ca385aadb3}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}!findPhotoByPath@{findPhotoByPath}}
+\index{findPhotoByPath@{findPhotoByPath}!com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+\doxysubsubsection{\texorpdfstring{findPhotoByPath()}{findPhotoByPath()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a56390a95b2000d014d8742ca385aadb3} 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository.\+find\+Photo\+By\+Path (\begin{DoxyParamCaption}\item[{String}]{path}{}\end{DoxyParamCaption})}
+
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a6f17e63f0f74165ba3afc69b9877f06f}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}!findPhotoPathsByOwner\_id@{findPhotoPathsByOwner\_id}}
+\index{findPhotoPathsByOwner\_id@{findPhotoPathsByOwner\_id}!com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+\doxysubsubsection{\texorpdfstring{findPhotoPathsByOwner\_id()}{findPhotoPathsByOwner\_id()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_a6f17e63f0f74165ba3afc69b9877f06f} 
+List$<$ String $>$ com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository.\+find\+Photo\+Paths\+By\+Owner\+\_\+id (\begin{DoxyParamCaption}\item[{long}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the paths of photos owned by a specific user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & The ID of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of paths to photos owned by the specified user 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_aabd562f5458aafa7d3d133ea4c12023a}\index{com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}!getPublicPhotosByOwnerId@{getPublicPhotosByOwnerId}}
+\index{getPublicPhotosByOwnerId@{getPublicPhotosByOwnerId}!com.dream\_habitat.app.repository.PhotoRepository@{com.dream\_habitat.app.repository.PhotoRepository}}
+\doxysubsubsection{\texorpdfstring{getPublicPhotosByOwnerId()}{getPublicPhotosByOwnerId()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_photo_repository_aabd562f5458aafa7d3d133ea4c12023a} 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ com.\+dream\+\_\+habitat.\+app.\+repository.\+Photo\+Repository.\+get\+Public\+Photos\+By\+Owner\+Id (\begin{DoxyParamCaption}\item[{Long}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retieves an image by owner\+Id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & L\textquotesingle{}ID de l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La liste des photos publiques de l\textquotesingle{}utilisateur 
+\end{DoxyReturn}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/repository/\mbox{\hyperlink{_photo_repository_8java}{Photo\+Repository.\+java}}\end{DoxyCompactItemize}

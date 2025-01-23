@@ -1,0 +1,151 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+controller.\+Photo\+Controller Class Reference}
+\hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller}{}\label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller}\index{com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}}
+
+
+Controller for handling photo-\/related operations, such as uploading, retrieving, updating, and deleting photos.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$ String $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_adaee0cbe7262c478e203257a53573d3e}{upload\+Photo}} (@Request\+Param("{}file"{}) Multipart\+File file, @Request\+Param("{}name"{}) String name, @Request\+Param("{}description"{}) String description, @Request\+Param("{}room\+Id"{}) \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} room\+Id, @Request\+Header(value="{}Authorization"{}) String token)
+\begin{DoxyCompactList}\small\item\em Uploads a photo and associates it with a room and a user. \end{DoxyCompactList}\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_a393ef10c39538504806cc578341b5907}{get\+Photos\+By\+Room\+Id}} (@Path\+Variable Long room\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all photos associated with a specific room. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_a0faf3e620d8740706be6bc7eebd508fe}{get\+Photo\+By\+Id}} (@Path\+Variable Long id)
+\begin{DoxyCompactList}\small\item\em Retrieves a photo by its ID. \end{DoxyCompactList}\item 
+Response\+Entity$<$ String $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_ada754f7e6957751d4e85482072127d4b}{delete\+Photo}} (@Path\+Variable Long id)
+\begin{DoxyCompactList}\small\item\em Deletes a photo based on its ID. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_ac7e88e60c7b9c592dbe28bcbfdcbdab2}{update\+Photo}} (@Path\+Variable Long id, @Request\+Param(required=false) String name, @Request\+Param(required=false) String description, @Request\+Param(required=false) Multipart\+File file)  throws Illegal\+State\+Exception, IOException 
+\begin{DoxyCompactList}\small\item\em Updates a photo\textquotesingle{}s details, such as name, description, or file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for handling photo-\/related operations, such as uploading, retrieving, updating, and deleting photos. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_ada754f7e6957751d4e85482072127d4b}\index{com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}!deletePhoto@{deletePhoto}}
+\index{deletePhoto@{deletePhoto}!com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}}
+\doxysubsubsection{\texorpdfstring{deletePhoto()}{deletePhoto()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_ada754f7e6957751d4e85482072127d4b} 
+Response\+Entity$<$ String $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Photo\+Controller.\+delete\+Photo (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a photo based on its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the photo to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with HTTP status 200 if the photo is deleted successfully. 
+
+Response\+Entity with HTTP status 404 if the photo is not found. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_a0faf3e620d8740706be6bc7eebd508fe}\index{com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}!getPhotoById@{getPhotoById}}
+\index{getPhotoById@{getPhotoById}!com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}}
+\doxysubsubsection{\texorpdfstring{getPhotoById()}{getPhotoById()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_a0faf3e620d8740706be6bc7eebd508fe} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Photo\+Controller.\+get\+Photo\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a photo by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the photo to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing the \doxylink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo} object, with HTTP status 200 if found. 
+
+Response\+Entity with HTTP status 404 if the photo is not found. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_a393ef10c39538504806cc578341b5907}\index{com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}!getPhotosByRoomId@{getPhotosByRoomId}}
+\index{getPhotosByRoomId@{getPhotosByRoomId}!com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}}
+\doxysubsubsection{\texorpdfstring{getPhotosByRoomId()}{getPhotosByRoomId()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_a393ef10c39538504806cc578341b5907} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Photo\+Controller.\+get\+Photos\+By\+Room\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{room\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all photos associated with a specific room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room for which to retrieve photos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a list of \doxylink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo} objects, with HTTP status 200 if successful. 
+
+Response\+Entity with HTTP status 404 if no photos are found for the room. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_ac7e88e60c7b9c592dbe28bcbfdcbdab2}\index{com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}!updatePhoto@{updatePhoto}}
+\index{updatePhoto@{updatePhoto}!com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}}
+\doxysubsubsection{\texorpdfstring{updatePhoto()}{updatePhoto()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_ac7e88e60c7b9c592dbe28bcbfdcbdab2} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Photo\+Controller.\+update\+Photo (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{, }\item[{@Request\+Param(required=false) String}]{name}{, }\item[{@Request\+Param(required=false) String}]{description}{, }\item[{@Request\+Param(required=false) Multipart\+File}]{file}{}\end{DoxyParamCaption}) throws Illegal\+State\+Exception, IOException\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates a photo\textquotesingle{}s details, such as name, description, or file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the photo to update. \\
+\hline
+{\em name} & The new name of the photo (optional). \\
+\hline
+{\em description} & The new description of the photo (optional). \\
+\hline
+{\em file} & The new photo file to upload (optional).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing the updated \doxylink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_photo}{Photo} object, with HTTP status 200 if successful. 
+
+Response\+Entity with HTTP status 400 if the request is incorrect. 
+
+Response\+Entity with HTTP status 404 if the photo is not found. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_adaee0cbe7262c478e203257a53573d3e}\index{com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}!uploadPhoto@{uploadPhoto}}
+\index{uploadPhoto@{uploadPhoto}!com.dream\_habitat.app.controller.PhotoController@{com.dream\_habitat.app.controller.PhotoController}}
+\doxysubsubsection{\texorpdfstring{uploadPhoto()}{uploadPhoto()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_photo_controller_adaee0cbe7262c478e203257a53573d3e} 
+Response\+Entity$<$ String $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Photo\+Controller.\+upload\+Photo (\begin{DoxyParamCaption}\item[{@Request\+Param("{}file"{}) Multipart\+File}]{file}{, }\item[{@Request\+Param("{}name"{}) String}]{name}{, }\item[{@Request\+Param("{}description"{}) String}]{description}{, }\item[{@Request\+Param("{}room\+Id"{}) \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}}}]{room\+Id}{, }\item[{@Request\+Header(value="{}Authorization"{}) String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Uploads a photo and associates it with a room and a user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The photo file to be uploaded. \\
+\hline
+{\em name} & The name of the photo. \\
+\hline
+{\em description} & The description of the photo. \\
+\hline
+{\em room\+Id} & The room to which the photo belongs. \\
+\hline
+{\em token} & The authorization token of the user uploading the photo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with HTTP status 200 if photo is successfully uploaded. 
+
+Response\+Entity with HTTP status 400 if the request is incorrect. 
+
+Response\+Entity with HTTP status 401 if the user is not authorized. 
+
+Response\+Entity with HTTP status 500 if there is a server error. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/controller/\mbox{\hyperlink{_photo_controller_8java}{Photo\+Controller.\+java}}\end{DoxyCompactItemize}

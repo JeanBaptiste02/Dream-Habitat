@@ -1,32 +1,42 @@
 package com.dream_habitat.app.dto.userDTOS;
 
 /**
- * DTO class representing a login response
- * @author Jean-Baptiste, Kamel, Victor, Mahdi
+ * @class LoginResponse
+ * @brief DTO représentant la réponse de connexion contenant le token JWT pour l'authentification.
+ * 
+ * Cette classe sert à transmettre le token JWT généré après une connexion réussie de l'utilisateur.
  */
 public class LoginResponse {
 
+    /**
+     * Le token JWT généré après une connexion réussie.
+     * @brief Token JWT d'authentification.
+     * @note Doit être utilisé pour authentifier l'utilisateur lors des futures requêtes.
+     */
     private String jwtToken;
 
     /**
-     * Constructs a new LoginResponse with the provided JWT token
-     * @param jwtToken The JWT token generated upon successful login
+     * @brief Constructeur d'une nouvelle réponse de connexion avec le token JWT.
+     * 
+     * @param jwtToken Le token JWT généré après une connexion réussie.
      */
     public LoginResponse(String jwtToken) {
         this.jwtToken = jwtToken;
     }
 
     /**
-     * Retrieves the JWT token
-     * @return The JWT token
+     * @brief Récupère le token JWT.
+     * 
+     * @return Le token JWT généré.
      */
     public String getJwtToken() {
         return jwtToken;
     }
 
     /**
-     * Sets the JWT token
-     * @param jwtToken The JWT token to set
+     * @brief Définit le token JWT.
+     * 
+     * @param jwtToken Le token JWT à définir.
      */
     public void setJwtToken(String jwtToken) {
         this.jwtToken = jwtToken;

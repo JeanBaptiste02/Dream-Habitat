@@ -1,0 +1,144 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+repository.\+Room\+Repository Interface Reference}
+\hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository}{}\label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository}\index{com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}}
+
+
+Repository interface for managing album entities.  
+
+
+Inheritance diagram for com.\+dream\+\_\+habitat.\+app.\+repository.\+Room\+Repository\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} $>$ \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_ada29589e1b13db90bcc01bb778020a7c}{find\+All}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all rooms. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_a54686fd458f5a7848bb52de56fa4d6e5}{find\+Room\+By\+Id}} (Long id)
+\begin{DoxyCompactList}\small\item\em Retrieves an room by its ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_a2756290423cc8a7813312f510b1bba39}{get\+Room\+By\+Id}} (Long room\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves an room by its ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_af0ccd9299d7e66a0b22714f1537dd02e}{delete\+Room\+By\+Id}} (Long room\+Id)
+\begin{DoxyCompactList}\small\item\em Deletes an room by its ID. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} $>$ \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_afac3495f764752d889bdaa66e1f45456}{find\+Rooms\+By\+Owner\+Id}} (Long owner\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all rooms associated with a specific owner ID. \end{DoxyCompactList}\item 
+Long \mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_af9b00e881b5819328291656bc15863ee}{get\+Min\+Room\+Id\+By\+Owner\+Id}} (@Param("{}owner\+Id"{}) Long owner\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves the minimum room ID associated with a given owner ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Repository interface for managing album entities. 
+
+\begin{DoxyAuthor}{Author}
+Jean-\/\+Baptiste, Kamel, Victor, Mahdi 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_af0ccd9299d7e66a0b22714f1537dd02e}\index{com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}!deleteRoomById@{deleteRoomById}}
+\index{deleteRoomById@{deleteRoomById}!com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}}
+\doxysubsubsection{\texorpdfstring{deleteRoomById()}{deleteRoomById()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_af0ccd9299d7e66a0b22714f1537dd02e} 
+void com.\+dream\+\_\+habitat.\+app.\+repository.\+Room\+Repository.\+delete\+Room\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{room\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Deletes an room by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room to delete \\
+\hline
+\end{DoxyParams}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_ada29589e1b13db90bcc01bb778020a7c}\index{com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}!findAll@{findAll}}
+\index{findAll@{findAll}!com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}}
+\doxysubsubsection{\texorpdfstring{findAll()}{findAll()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_ada29589e1b13db90bcc01bb778020a7c} 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} $>$ com.\+dream\+\_\+habitat.\+app.\+repository.\+Room\+Repository.\+find\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves all rooms. 
+
+\begin{DoxyReturn}{Returns}
+A list of all rooms 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_a54686fd458f5a7848bb52de56fa4d6e5}\index{com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}!findRoomById@{findRoomById}}
+\index{findRoomById@{findRoomById}!com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}}
+\doxysubsubsection{\texorpdfstring{findRoomById()}{findRoomById()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_a54686fd458f5a7848bb52de56fa4d6e5} 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} com.\+dream\+\_\+habitat.\+app.\+repository.\+Room\+Repository.\+find\+Room\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves an room by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the room to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The room with the specified ID 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_afac3495f764752d889bdaa66e1f45456}\index{com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}!findRoomsByOwnerId@{findRoomsByOwnerId}}
+\index{findRoomsByOwnerId@{findRoomsByOwnerId}!com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}}
+\doxysubsubsection{\texorpdfstring{findRoomsByOwnerId()}{findRoomsByOwnerId()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_afac3495f764752d889bdaa66e1f45456} 
+List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} $>$ com.\+dream\+\_\+habitat.\+app.\+repository.\+Room\+Repository.\+find\+Rooms\+By\+Owner\+Id (\begin{DoxyParamCaption}\item[{Long}]{owner\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves all rooms associated with a specific owner ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\+Id} & The ID of the owner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of rooms associated with the owner 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_af9b00e881b5819328291656bc15863ee}\index{com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}!getMinRoomIdByOwnerId@{getMinRoomIdByOwnerId}}
+\index{getMinRoomIdByOwnerId@{getMinRoomIdByOwnerId}!com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}}
+\doxysubsubsection{\texorpdfstring{getMinRoomIdByOwnerId()}{getMinRoomIdByOwnerId()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_af9b00e881b5819328291656bc15863ee} 
+Long com.\+dream\+\_\+habitat.\+app.\+repository.\+Room\+Repository.\+get\+Min\+Room\+Id\+By\+Owner\+Id (\begin{DoxyParamCaption}\item[{@Param("{}owner\+Id"{}) Long}]{owner\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the minimum room ID associated with a given owner ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\+Id} & The ID of the owner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The minimum room ID associated with the owner 
+\end{DoxyReturn}
+\Hypertarget{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_a2756290423cc8a7813312f510b1bba39}\index{com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}!getRoomById@{getRoomById}}
+\index{getRoomById@{getRoomById}!com.dream\_habitat.app.repository.RoomRepository@{com.dream\_habitat.app.repository.RoomRepository}}
+\doxysubsubsection{\texorpdfstring{getRoomById()}{getRoomById()}}
+{\footnotesize\ttfamily \label{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_room_repository_a2756290423cc8a7813312f510b1bba39} 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} com.\+dream\+\_\+habitat.\+app.\+repository.\+Room\+Repository.\+get\+Room\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{room\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves an room by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The room with the specified ID 
+\end{DoxyReturn}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/repository/\mbox{\hyperlink{_room_repository_8java}{Room\+Repository.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,136 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+controller.\+interior\+Controller.\+Interior\+Controller Class Reference}
+\hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller}{}\label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller}\index{com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}}
+
+
+Contrôleur pour gérer les demandes liées à la génération de designs d\textquotesingle{}intérieur.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_ad37f56c01e4f69c439a56c86fc29d04e}{Interior\+Controller}} (\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1interior_decorator_service_1_1_interior_decorator_service}{Interior\+Decorator\+Service}} decorator\+Service, \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1_photo_service}{Photo\+Service}} photo\+Service)
+\begin{DoxyCompactList}\small\item\em Constructeur du contrôleur \doxylink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller}{Interior\+Controller}. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1_interior_controller_1_1_generate_dto}{Generate\+Dto}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a4f70bcfeff5d3e674d1bd57eae7bbc5d}{generate\+Interior\+Design}} ( @Request\+Param("{}file"{}) Multipart\+File file, @Request\+Param("{}room\+\_\+type"{}) String room\+Type, @Request\+Param("{}style"{}) String style, @Request\+Param(value="{}upscale"{}, default\+Value="{}false"{}) boolean upscale, @Request\+Param(value="{}model"{}, default\+Value="{}sd15"{}) String model)
+\begin{DoxyCompactList}\small\item\em Génère un design d\textquotesingle{}intérieur à partir d\textquotesingle{}une photo et de paramètres spécifiques. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1_interior_controller_1_1_api_response_dto}{Api\+Response\+Dto}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a52962df8c809b638e6d3d6ad8dca8459}{get\+Interior\+Design}} (@Request\+Param("{}uuid"{}) String uuid)
+\begin{DoxyCompactList}\small\item\em Récupère les résultats d\textquotesingle{}un design d\textquotesingle{}intérieur généré à partir de son UUID. \end{DoxyCompactList}\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a906e14fe5a7d923af45b5f9f9dbaa4e0}{res\+Interior\+Design}} ( @Request\+Param("{}photo\+\_\+id"{}) long photo\+Id, @Request\+Param("{}room\+\_\+type"{}) String room\+Type, @Request\+Param("{}style"{}) String style, @Request\+Param(value="{}upscale"{}, default\+Value="{}false"{}) boolean upscale, @Request\+Param(value="{}model"{}, default\+Value="{}sd15"{}) String model)
+\begin{DoxyCompactList}\small\item\em Génère un design d\textquotesingle{}intérieur à partir d\textquotesingle{}une photo existante avec des paramètres de pièce et de style. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contrôleur pour gérer les demandes liées à la génération de designs d\textquotesingle{}intérieur. 
+
+Ce contrôleur contient plusieurs points de terminaison pour générer des designs d\textquotesingle{}intérieur à partir de photos et de paramètres. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_ad37f56c01e4f69c439a56c86fc29d04e}\index{com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}!InteriorController@{InteriorController}}
+\index{InteriorController@{InteriorController}!com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}}
+\doxysubsubsection{\texorpdfstring{InteriorController()}{InteriorController()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_ad37f56c01e4f69c439a56c86fc29d04e} 
+com.\+dream\+\_\+habitat.\+app.\+controller.\+interior\+Controller.\+Interior\+Controller.\+Interior\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1interior_decorator_service_1_1_interior_decorator_service}{Interior\+Decorator\+Service}}}]{decorator\+Service}{, }\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1_photo_service}{Photo\+Service}}}]{photo\+Service}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur du contrôleur \doxylink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller}{Interior\+Controller}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em decorator\+Service} & Service pour la génération des designs d\textquotesingle{}intérieur. \\
+\hline
+{\em photo\+Service} & Service pour la gestion des photos. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a4f70bcfeff5d3e674d1bd57eae7bbc5d}\index{com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}!generateInteriorDesign@{generateInteriorDesign}}
+\index{generateInteriorDesign@{generateInteriorDesign}!com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}}
+\doxysubsubsection{\texorpdfstring{generateInteriorDesign()}{generateInteriorDesign()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a4f70bcfeff5d3e674d1bd57eae7bbc5d} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1_interior_controller_1_1_generate_dto}{Generate\+Dto}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+interior\+Controller.\+Interior\+Controller.\+generate\+Interior\+Design (\begin{DoxyParamCaption}\item[{@Request\+Param("{}file"{}) Multipart\+File}]{file}{, }\item[{@Request\+Param("{}room\+\_\+type"{}) String}]{room\+Type}{, }\item[{@Request\+Param("{}style"{}) String}]{style}{, }\item[{@Request\+Param(value="{}upscale"{}, default\+Value="{}false"{}) boolean}]{upscale}{, }\item[{@Request\+Param(value="{}model"{}, default\+Value="{}sd15"{}) String}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Génère un design d\textquotesingle{}intérieur à partir d\textquotesingle{}une photo et de paramètres spécifiques. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & La photo à traiter pour la génération du design d\textquotesingle{}intérieur. \\
+\hline
+{\em room\+Type} & Type de la pièce (ex\+: salon, chambre). \\
+\hline
+{\em style} & Style de design (ex\+: moderne, classique). \\
+\hline
+{\em upscale} & Indicateur pour améliorer la qualité de l\textquotesingle{}image (optionnel, défaut\+: false). \\
+\hline
+{\em model} & Modèle utilisé pour générer le design (optionnel, défaut\+: sd15). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un objet \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1_interior_controller_1_1_generate_dto}{Generate\+Dto} contenant les détails du design généré. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Si une erreur se produit lors de la génération du design. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a52962df8c809b638e6d3d6ad8dca8459}\index{com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}!getInteriorDesign@{getInteriorDesign}}
+\index{getInteriorDesign@{getInteriorDesign}!com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}}
+\doxysubsubsection{\texorpdfstring{getInteriorDesign()}{getInteriorDesign()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a52962df8c809b638e6d3d6ad8dca8459} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1_interior_controller_1_1_api_response_dto}{Api\+Response\+Dto}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+interior\+Controller.\+Interior\+Controller.\+get\+Interior\+Design (\begin{DoxyParamCaption}\item[{@Request\+Param("{}uuid"{}) String}]{uuid}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère les résultats d\textquotesingle{}un design d\textquotesingle{}intérieur généré à partir de son UUID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uuid} & L\textquotesingle{}UUID unique associé au design d\textquotesingle{}intérieur généré. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un objet \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1_interior_controller_1_1_api_response_dto}{Api\+Response\+Dto} contenant les résultats du design d\textquotesingle{}intérieur. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Si une erreur se produit lors de la récupération des résultats. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a906e14fe5a7d923af45b5f9f9dbaa4e0}\index{com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}!resInteriorDesign@{resInteriorDesign}}
+\index{resInteriorDesign@{resInteriorDesign}!com.dream\_habitat.app.controller.interiorController.InteriorController@{com.dream\_habitat.app.controller.interiorController.InteriorController}}
+\doxysubsubsection{\texorpdfstring{resInteriorDesign()}{resInteriorDesign()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1interior_controller_1_1_interior_controller_a906e14fe5a7d923af45b5f9f9dbaa4e0} 
+Response\+Entity$<$?$>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+interior\+Controller.\+Interior\+Controller.\+res\+Interior\+Design (\begin{DoxyParamCaption}\item[{@Request\+Param("{}photo\+\_\+id"{}) long}]{photo\+Id}{, }\item[{@Request\+Param("{}room\+\_\+type"{}) String}]{room\+Type}{, }\item[{@Request\+Param("{}style"{}) String}]{style}{, }\item[{@Request\+Param(value="{}upscale"{}, default\+Value="{}false"{}) boolean}]{upscale}{, }\item[{@Request\+Param(value="{}model"{}, default\+Value="{}sd15"{}) String}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Génère un design d\textquotesingle{}intérieur à partir d\textquotesingle{}une photo existante avec des paramètres de pièce et de style. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em photo\+Id} & Identifiant de la photo à utiliser pour la génération du design. \\
+\hline
+{\em room\+Type} & Type de la pièce (ex\+: salon, chambre). \\
+\hline
+{\em style} & Style de design (ex\+: moderne, classique). \\
+\hline
+{\em upscale} & Indicateur pour améliorer la qualité de l\textquotesingle{}image (optionnel, défaut\+: false). \\
+\hline
+{\em model} & Modèle utilisé pour générer le design (optionnel, défaut\+: sd15). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un objet \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1photo_result_d_t_o_s_1_1_photo_result_d_t_o}{Photo\+Result\+DTO} contenant le résultat du design généré à partir de la photo. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Si une erreur se produit lors de la génération du design. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/controller/interior\+Controller/\mbox{\hyperlink{_interior_controller_8java}{Interior\+Controller.\+java}}\end{DoxyCompactItemize}

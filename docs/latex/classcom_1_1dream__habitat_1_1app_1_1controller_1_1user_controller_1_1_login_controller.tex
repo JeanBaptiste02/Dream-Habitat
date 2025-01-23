@@ -1,0 +1,73 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+Login\+Controller Class Reference}
+\hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller}{}\label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller}\index{com.dream\_habitat.app.controller.userController.LoginController@{com.dream\_habitat.app.controller.userController.LoginController}}
+
+
+Controller for handling user login requests.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller_adbc84e3a5c39189c45d45e797654fe57}{Login\+Controller}} (Authentication\+Manager authentication\+Manager, \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}{User\+Service\+Imp}} user\+Service\+Imp, \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util}{Jwt\+Util}} jwt\+Util, \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1_user_service}{User\+Service}} user\+Service)
+\begin{DoxyCompactList}\small\item\em Constructor for initializing the \doxylink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller}{Login\+Controller}. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_login_response}{Login\+Response}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller_a400accc4fa44dbe34b5f85610fbda5ce}{login}} (@Request\+Body \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_login_request}{Login\+Request}} login\+Request)
+\begin{DoxyCompactList}\small\item\em Authenticates the user and generates a JWT token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for handling user login requests. 
+
+This controller processes login requests, authenticates the user and generates a JWT token if the authentication is successful. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller_adbc84e3a5c39189c45d45e797654fe57}\index{com.dream\_habitat.app.controller.userController.LoginController@{com.dream\_habitat.app.controller.userController.LoginController}!LoginController@{LoginController}}
+\index{LoginController@{LoginController}!com.dream\_habitat.app.controller.userController.LoginController@{com.dream\_habitat.app.controller.userController.LoginController}}
+\doxysubsubsection{\texorpdfstring{LoginController()}{LoginController()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller_adbc84e3a5c39189c45d45e797654fe57} 
+com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+Login\+Controller.\+Login\+Controller (\begin{DoxyParamCaption}\item[{Authentication\+Manager}]{authentication\+Manager}{, }\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}{User\+Service\+Imp}}}]{user\+Service\+Imp}{, }\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util}{Jwt\+Util}}}]{jwt\+Util}{, }\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1_user_service}{User\+Service}}}]{user\+Service}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for initializing the \doxylink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller}{Login\+Controller}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em authentication\+Manager} & The authentication manager used for validating user credentials. \\
+\hline
+{\em user\+Service\+Imp} & The service for loading user details from the database. \\
+\hline
+{\em jwt\+Util} & Utility class for generating JWT tokens. \\
+\hline
+{\em user\+Service} & The service for managing user-\/related operations. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller_a400accc4fa44dbe34b5f85610fbda5ce}\index{com.dream\_habitat.app.controller.userController.LoginController@{com.dream\_habitat.app.controller.userController.LoginController}!login@{login}}
+\index{login@{login}!com.dream\_habitat.app.controller.userController.LoginController@{com.dream\_habitat.app.controller.userController.LoginController}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_login_controller_a400accc4fa44dbe34b5f85610fbda5ce} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_login_response}{Login\+Response}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+Login\+Controller.\+login (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_login_request}{Login\+Request}}}]{login\+Request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Authenticates the user and generates a JWT token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em login\+Request} & The \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_login_request}{Login\+Request} object containing the user\textquotesingle{}s credentials (email and password).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing the \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_login_response}{Login\+Response} object with the JWT token if successful. 
+
+Response\+Entity with HTTP status 401 if authentication fails. 
+
+Response\+Entity with HTTP status 404 if the user is not found.
+\end{DoxyReturn}
+This method handles the user login process by authenticating the user using their email and password. If authentication is successful, a JWT token is generated and returned in the response. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/controller/user\+Controller/\mbox{\hyperlink{_login_controller_8java}{Login\+Controller.\+java}}\end{DoxyCompactItemize}

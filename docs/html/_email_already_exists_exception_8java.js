@@ -1,0 +1,4 @@
+var _email_already_exists_exception_8java =
+[
+    [ "com.dream_habitat.app.exception.userException.EmailAlreadyExistsException", "classcom_1_1dream__habitat_1_1app_1_1exception_1_1user_exception_1_1_email_already_exists_exception.html", "classcom_1_1dream__habitat_1_1app_1_1exception_1_1user_exception_1_1_email_already_exists_exception" ]
+];

@@ -1,0 +1,192 @@
+\chapter{Dream Habitat -\/ Backend API}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Dream Habitat -\/ Backend API@{Dream Habitat -\/ Backend API}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+Ce dépôt contient l\textquotesingle{}API backend pour {\bfseries{Dream Habitat}}, un projet visant à proposer des aménagements personnalisés pour des habitats à partir de photos grâce à une Intelligence Artificielle. L\textquotesingle{}application permet aux utilisateurs de téléverser des photos d\textquotesingle{}espaces, et l\textquotesingle{}IA propose des solutions d\textquotesingle{}aménagement adaptées aux préférences et aux contraintes de l\textquotesingle{}utilisateur.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Fonctionnalités du Backend}{Fonctionnalités du Backend}}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item {\bfseries{Gestion des utilisateurs}} \+: Créer, mettre à jour, et supprimer des utilisateurs via des API sécurisées.
+\item {\bfseries{Gestion des espaces (rooms)}} \+: Ajouter des espaces (rooms) dans lesquels les utilisateurs peuvent téléverser des photos.
+\item {\bfseries{Gestion des photos}} \+: Téléverser, récupérer, et gérer les photos liées aux espaces pour analyse IA.
+\item {\bfseries{Authentification JWT}} \+: Sécurisation des endpoints via l\textquotesingle{}authentification par tokens JWT.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Membres de l\textquotesingle{}équipe}{Membres de l\textquotesingle{}équipe}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{\mbox{[}Talatizi Kamel,Zhang Victor, Jean-\/\+Babtiste Damodarane\mbox{]}}} \+: Développeurs backend principal
+\item {\bfseries{\mbox{[}Talatizi Kamel,Djaouti Youba\mbox{]}}} \+: Développeur en charge de l\textquotesingle{}architecture API
+\item {\bfseries{\mbox{[}Touati Dan,Ibgui Nathan\mbox{]}}} \+: Responsable intégration IA
+\item {\bfseries{\mbox{[}Djouati Youba\mbox{]}}} \+: Dev\+Ops et gestion des infrastructures
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Technologies utilisées}{Technologies utilisées}}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{Java 17}} avec {\bfseries{Spring Boot}} pour la structure du projet.
+\item {\bfseries{JWT (JSON Web Token)}} pour l\textquotesingle{}authentification et la sécurité des endpoints.
+\item {\bfseries{Maven}} pour la gestion des dépendances et la compilation du projet.
+\item {\bfseries{Base de données relationnelle}} ( Postgre\+SQL) pour stocker les utilisateurs, espaces, et photos et d autres structure de données.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Comment créer et lancer le projet}{Comment créer et lancer le projet}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Pour développer et exécuter le projet Dream Habitat, suivez les étapes ci-\/dessous \+:\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{Prérequis}{Prérequis}}\label{md__r_e_a_d_m_e_autotoc_md5}
+Assurez-\/vous d\textquotesingle{}avoir installé les éléments suivants sur votre machine \+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Java 17}} ou supérieur
+\item {\bfseries{Maven}} pour la gestion des dépendances
+\item Un environnement de base de données ( Postgre\+SQL)
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Étapes d\textquotesingle{}installation}{Étapes d\textquotesingle{}installation}}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Cloner le dépôt}} \+: Ouvrez un terminal et exécutez la commande suivante pour cloner le dépôt \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ git\ clone\ https://github.com/username/dream-\/habitat.git}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{2.\ Naviguer\ dans\ le\ dossier\ du\ projet\ :}
+
+\end{DoxyCode}
+ bash cd dream-\/habitat 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3.\ Configurer\ la\ base\ de\ données\ :}
+\DoxyCodeLine{\ \ \ Modifiez\ le\ fichier\ \`{}src/main/resources/application.properties`\ pour\ configurer\ votre\ connexion\ à\ la\ base\ de\ données.\ Assurez-\/vous\ de\ définir\ les\ informations\ de\ connexion\ appropriées.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{4.\ Construire\ le\ projet\ :}
+\DoxyCodeLine{\ \ \ Exécutez\ la\ commande\ suivante\ pour\ compiler\ le\ projet\ et\ télécharger\ toutes\ les\ dépendances\ nécessaires\ :}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{5.\ Lancer\ l'application\ :\ Pour\ démarrer\ le\ serveur,\ utilisez\ la\ commande\ suivante\ :}
+
+\end{DoxyCode}
+ bash mvn spring-\/boot\+:run 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6.\ Exécution\ des\ tests}
+\DoxyCodeLine{Pour\ exécuter\ les\ tests\ unitaires\ et\ d'intégration,\ utilisez\ la\ commande\ suivante\ :}
+
+\end{DoxyCode}
+ bash mvn test 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\ Gestion\ des\ Utilisateurs}
+\DoxyCodeLine{}
+\DoxyCodeLine{Le\ contrôleur\ \`{}UserController`\ gère\ les\ opérations\ CRUD\ (Create,\ Read,\ Update,\ Delete)\ pour\ les\ utilisateurs\ de\ l'application\ Dream\ Habitat.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Endpoints}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **POST\ /api/users/addUser**\ \ }
+\DoxyCodeLine{\ \ Crée\ un\ nouvel\ utilisateur.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Requête**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Corps\ :\ \`{}UserCreateDTO`\ (nom,\ email,\ mot\ de\ passe)}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}201\ Created`\ avec\ l'objet\ \`{}UserDTO`\ de\ l'utilisateur\ créé.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **GET\ /api/users/\{id\}**\ \ }
+\DoxyCodeLine{\ \ Récupère\ un\ utilisateur\ par\ son\ ID.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Requête**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Paramètre\ :\ \`{}id`\ (ID\ de\ l'utilisateur)}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ avec\ l'objet\ \`{}UserDTO`\ de\ l'utilisateur\ correspondant.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **GET\ /api/users/**\ \ }
+\DoxyCodeLine{\ \ Récupère\ la\ liste\ de\ tous\ les\ utilisateurs.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ avec\ une\ liste\ d'objets\ \`{}UserDTO`.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **PUT\ /api/users/update/\{id\}**\ \ }
+\DoxyCodeLine{\ \ Met\ à\ jour\ un\ utilisateur\ existant.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Requête**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Paramètre\ :\ \`{}id`\ (ID\ de\ l'utilisateur)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Corps\ :\ \`{}UserCreateDTO`\ (nom,\ email,\ mot\ de\ passe)}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ avec\ l'objet\ \`{}UserDTO`\ mis\ à\ jour.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **DELETE\ /api/users/delete/\{id\}**\ \ }
+\DoxyCodeLine{\ \ Supprime\ un\ utilisateur\ par\ son\ ID.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Requête**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Paramètre\ :\ \`{}id`\ (ID\ de\ l'utilisateur)}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}204\ No\ Content`}
+\DoxyCodeLine{\#\#\ Authentification\ des\ Utilisateurs}
+\DoxyCodeLine{}
+\DoxyCodeLine{Le\ contrôleur\ \`{}LoginController`\ permet\ aux\ utilisateurs\ de\ se\ connecter\ à\ l'application\ et\ génère\ des\ jetons\ JWT\ pour\ l'authentification.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Endpoints}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **POST\ /api/login**\ \ }
+\DoxyCodeLine{\ \ Authentifie\ un\ utilisateur\ et\ renvoie\ un\ jeton\ JWT.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Requête**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Corps\ :\ \`{}LoginRequest`\ (email,\ mot\ de\ passe)}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ avec\ un\ objet\ \`{}LoginResponse`\ contenant\ le\ jeton\ JWT\ si\ l'authentification\ est\ réussie.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}401\ Unauthorized`\ si\ les\ informations\ d'identification\ sont\ incorrectes.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}404\ Not\ Found`\ si\ l'utilisateur\ n'est\ pas\ trouvé.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Gestion\ des\ Photos}
+\DoxyCodeLine{}
+\DoxyCodeLine{Le\ contrôleur\ \`{}PhotoController`\ permet\ de\ gérer\ l'upload\ et\ la\ récupération\ des\ photos\ associées\ à\ des\ rooms\ (pièces)\ dans\ l'application.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Endpoints}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **POST\ /api/photo/upload**\ \ }
+\DoxyCodeLine{\ \ Permet\ d'uploader\ une\ photo\ pour\ un\ utilisateur\ authentifié.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Requête**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Paramètres\ :\ \`{}MultipartFile\ file`,\ \`{}String\ name`,\ \`{}String\ description`,\ \`{}Room\ roomId`}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ En-\/tête\ :\ \`{}Authorization`\ (Bearer\ token\ JWT)}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ si\ la\ photo\ est\ uploadée\ avec\ succès.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}401\ Unauthorized`\ si\ l'utilisateur\ n'est\ pas\ authentifié.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}500\ Internal\ Server\ Error`\ en\ cas\ de\ problème\ lors\ de\ l'upload.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **GET\ /api/photo/room/\{roomId\}**\ \ }
+\DoxyCodeLine{\ \ Récupère\ les\ photos\ associées\ à\ une\ pièce\ donnée\ (room).}
+\DoxyCodeLine{\ \ \ \ -\/\ **Requête**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Paramètre\ d'URL\ :\ \`{}Long\ roomId`}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ avec\ la\ liste\ des\ photos\ associées\ à\ la\ pièce.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Gestion\ des\ Rooms}
+\DoxyCodeLine{}
+\DoxyCodeLine{Le\ contrôleur\ \`{}RoomController`\ permet\ de\ gérer\ les\ rooms\ (pièces)\ de\ l'application,\ y\ compris\ la\ création,\ la\ récupération\ de\ rooms\ par\ ID\ et\ la\ récupération\ de\ toutes\ les\ rooms\ associées\ à\ un\ utilisateur\ spécifique.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Endpoints}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **POST\ /api/room/create**\ \ }
+\DoxyCodeLine{\ \ Crée\ une\ nouvelle\ room.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Requête**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ Corps\ de\ la\ requête\ :\ \`{}RoomDTO`\ contenant\ les\ détails\ de\ la\ room.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}201\ CREATED`\ avec\ les\ détails\ de\ la\ room\ nouvellement\ créée.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}400\ BAD\ REQUEST`\ si\ le\ titre\ de\ la\ room\ est\ manquant.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}404\ NOT\ FOUND`\ si\ l'utilisateur\ propriétaire\ de\ la\ room\ n'est\ pas\ trouvé.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **GET\ /api/room/all**\ \ }
+\DoxyCodeLine{\ \ Récupère\ toutes\ les\ rooms\ présentes\ dans\ l'application.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ avec\ la\ liste\ de\ toutes\ les\ rooms.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **GET\ /api/room/\{albumId\}**\ \ }
+\DoxyCodeLine{\ \ Récupère\ une\ room\ par\ son\ ID.}
+\DoxyCodeLine{\ \ \ \ -\/\ **Paramètre\ d'URL**\ :\ \`{}Long\ albumId`}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ avec\ les\ détails\ de\ la\ room.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}404\ NOT\ FOUND`\ si\ la\ room\ n'est\ pas\ trouvée.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ **GET\ /api/room/user**\ \ }
+\DoxyCodeLine{\ \ Récupère\ toutes\ les\ rooms\ associées\ à\ un\ utilisateur\ spécifié\ par\ le\ token\ JWT.}
+\DoxyCodeLine{\ \ \ \ -\/\ **En-\/tête**\ :\ \`{}Authorization`\ (Bearer\ token\ JWT)}
+\DoxyCodeLine{\ \ \ \ -\/\ **Réponse**\ :}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}200\ OK`\ avec\ la\ liste\ des\ rooms\ de\ l'utilisateur.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/\ \`{}401\ UNAUTHORIZED`\ si\ le\ token\ est\ manquant\ ou\ invalide.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ \ Pour\ la\ configuration\ du\ back}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ ajouter\ un\ fichier`.env`\ à\ la\ racine\ du\ projet}
+
+\end{DoxyCode}
+ PWD=Mettez votre mot de passe pour la connexion à la base de donnée 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/\ ajouter\ au\ fichier\ \`{}/src/main/resources/application.properties`}
+\DoxyCodeLine{\ \ à\ la\ ligne\ ou\ se\ trouve\ spring.datasource.password\ mettez}
+
+\end{DoxyCode}
+ spring.\+datasource.\+password= \$\{PWD\} \`{}\`{}\`{} 
+\end{DoxyEnumerate}
