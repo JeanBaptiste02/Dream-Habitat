@@ -1,6 +1,5 @@
 package com.dream_habitat.app.service;
 
-
 import com.dream_habitat.app.dto.userDTOS.UserCreateDTO;
 import com.dream_habitat.app.dto.userDTOS.UserDTO;
 import com.dream_habitat.app.exception.userException.EmailAlreadyExistsException;
@@ -28,7 +27,6 @@ public class UserService {
             throw new EmailAlreadyExistsException("L'email est déjà utilisé : " + user.getEmail());
         }
 
-        // Encode le mot de passe ici avant de sauvegarder
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
@@ -37,12 +35,9 @@ public class UserService {
         return new UserDTO(savedUser.getId(), savedUser.getName(), savedUser.getEmail());
     }
 
-    /**
-     * Retrieves a user by their email address
-     * @param email The email address of the user to retrieve
-     * @return The user with the specified email address
-     */
-    public Optional<User> getUserByEmail(String email){return userRepository.findByEmail(email);}
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 
     public UserDTO getUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow();
@@ -68,5 +63,17 @@ public class UserService {
         User user = userRepository.findById(id).orElseThrow();
         userRepository.delete(user);
     }
-}
 
+    public User createUserFromGoogleAuth(String name, String email) {
+        Optional<User> existingUser = userRepository.findByEmail(email);
+        if (existingUser.isPresent()) {
+            return existingUser.get(); // Return existing user if already registered
+        }
+
+        User newUser = new User();
+        newUser.setName(name);
+        newUser.setEmail(email);
+        newUser.setPassword(""); // No password for OAuth users
+        return userRepository.save(newUser);
+    }
+}
