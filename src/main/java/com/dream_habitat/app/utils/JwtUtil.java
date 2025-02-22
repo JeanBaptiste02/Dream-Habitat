@@ -19,6 +19,7 @@ import java.util.function.Function;
 public class JwtUtil {
 
     public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A71347437"; // Mettez ici votre clé secrète
+    private final long EXPIRATION_TIME = 1000 * 60 * 60 * 10;
 
     public User extractUser(String token) {
         Claims claims = extractAllClaims(token);
@@ -72,4 +73,35 @@ public class JwtUtil {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
+    
+    /***********************Google**************************/
+    public String generateToken1(String email) {
+        return Jwts.builder()
+                .setSubject(email)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(SignatureAlgorithm.HS512, SECRET)
+                .compact();
+    }
+
+    public String extractEmail1(String token) {
+        return extractClaims1(token).getSubject();
+    }
+    
+    public Claims extractClaims1(String token) {
+        return Jwts.parser()
+                .setSigningKey(SECRET)
+                .parseClaimsJws(token)
+                .getBody();
+    }
+
+    public boolean validateToken(String token, String email) {
+        final String extractedEmail = extractEmail1(token);
+        return (extractedEmail.equals(email) && !isTokenExpired(token));
+    }
+
+    private boolean isTokenExpired1(String token) {
+        return extractClaims1(token).getExpiration().before(new Date());
+    }
+     
 }
