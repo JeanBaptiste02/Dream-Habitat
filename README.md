@@ -13,7 +13,7 @@ Ce dépôt contient l'API backend pour **Dream Habitat**, un projet visant à pr
 
 - **[Talatizi Kamel,Zhang Victor, Jean-Babtiste Damodarane]** : Développeurs backend principal
 - **[Talatizi Kamel,Djaouti Youba]** : Développeur en charge de l'architecture API
-- **[Touati Dylan,Ibgui Nathan]** : Responsable intégration IA
+- **[Touati Dan,Ibgui Nathan]** : Responsable intégration IA
 - **[Djouati Youba]** : DevOps et gestion des infrastructures
 
 ## Technologies utilisées

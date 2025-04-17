@@ -1,0 +1,68 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+service.\+jwt.\+User\+Service\+Imp Class Reference}
+\hypertarget{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}{}\label{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}\index{com.dream\_habitat.app.service.jwt.UserServiceImp@{com.dream\_habitat.app.service.jwt.UserServiceImp}}
+
+
+Service implementation for loading user details used in JWT authentication.  
+
+
+Inheritance diagram for com.\+dream\+\_\+habitat.\+app.\+service.\+jwt.\+User\+Service\+Imp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp_aede1394a763e5aed1329e2aa88de50c6}{User\+Service\+Imp}} (\mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_user_repository}{User\+Repository}} user\+Repository)
+\item 
+User\+Details \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp_a14121ef39f81bb595ac515e01329998f}{load\+User\+By\+Username}} (String email)  throws Username\+Not\+Found\+Exception 
+\begin{DoxyCompactList}\small\item\em Loads user details by username (email) for authentication. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service implementation for loading user details used in JWT authentication. 
+
+\begin{DoxyAuthor}{Author}
+Jean-\/\+Baptiste, Kamel, Victor, Mahdi 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp_aede1394a763e5aed1329e2aa88de50c6}\index{com.dream\_habitat.app.service.jwt.UserServiceImp@{com.dream\_habitat.app.service.jwt.UserServiceImp}!UserServiceImp@{UserServiceImp}}
+\index{UserServiceImp@{UserServiceImp}!com.dream\_habitat.app.service.jwt.UserServiceImp@{com.dream\_habitat.app.service.jwt.UserServiceImp}}
+\doxysubsubsection{\texorpdfstring{UserServiceImp()}{UserServiceImp()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp_aede1394a763e5aed1329e2aa88de50c6} 
+com.\+dream\+\_\+habitat.\+app.\+service.\+jwt.\+User\+Service\+Imp.\+User\+Service\+Imp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacecom_1_1dream__habitat_1_1app_1_1repository_1_1_user_repository}{User\+Repository}}}]{user\+Repository}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp_a14121ef39f81bb595ac515e01329998f}\index{com.dream\_habitat.app.service.jwt.UserServiceImp@{com.dream\_habitat.app.service.jwt.UserServiceImp}!loadUserByUsername@{loadUserByUsername}}
+\index{loadUserByUsername@{loadUserByUsername}!com.dream\_habitat.app.service.jwt.UserServiceImp@{com.dream\_habitat.app.service.jwt.UserServiceImp}}
+\doxysubsubsection{\texorpdfstring{loadUserByUsername()}{loadUserByUsername()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1service_1_1jwt_1_1_user_service_imp_a14121ef39f81bb595ac515e01329998f} 
+User\+Details com.\+dream\+\_\+habitat.\+app.\+service.\+jwt.\+User\+Service\+Imp.\+load\+User\+By\+Username (\begin{DoxyParamCaption}\item[{String}]{email}{}\end{DoxyParamCaption}) throws Username\+Not\+Found\+Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads user details by username (email) for authentication. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email (username) of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User\+Details containing user details 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Username\+Not\+Found\+Exception} & If the user is not found \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/service/jwt/\mbox{\hyperlink{_user_service_imp_8java}{User\+Service\+Imp.\+java}}\end{DoxyCompactItemize}

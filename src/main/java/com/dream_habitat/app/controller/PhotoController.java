@@ -24,6 +24,10 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * @class PhotoController
+ * @brief Controller for handling photo-related operations, such as uploading, retrieving, updating, and deleting photos.
+ */
 @RestController
 @RequestMapping("api/photo")
 public class PhotoController {
@@ -40,14 +44,26 @@ public class PhotoController {
     @Autowired
     private RoomService roomService;
 
-
+    /**
+     * @brief Uploads a photo and associates it with a room and a user.
+     * 
+     * @param file The photo file to be uploaded.
+     * @param name The name of the photo.
+     * @param description The description of the photo.
+     * @param roomId The room to which the photo belongs.
+     * @param token The authorization token of the user uploading the photo.
+     * 
+     * @return ResponseEntity with HTTP status 200 if photo is successfully uploaded.
+     * @return ResponseEntity with HTTP status 400 if the request is incorrect.
+     * @return ResponseEntity with HTTP status 401 if the user is not authorized.
+     * @return ResponseEntity with HTTP status 500 if there is a server error.
+     */
     @PostMapping("/upload")
     public ResponseEntity<String> uploadPhoto(@RequestParam("file") MultipartFile file,
                                               @RequestParam("name") String name,
                                               @RequestParam("description") String description,
                                               @RequestParam("roomId") Room roomId,
                                               @RequestHeader(value="Authorization") String token) {
-
         if (token != null) {
             token = token.substring(7);
             UserDTO existingUser = userService.getUserById(jwtUtil.extractUser(token).getId());
@@ -95,19 +111,42 @@ public class PhotoController {
         }
     }
 
-
+    /**
+     * @brief Retrieves all photos associated with a specific room.
+     * 
+     * @param roomId The ID of the room for which to retrieve photos.
+     * 
+     * @return ResponseEntity containing a list of Photo objects, with HTTP status 200 if successful.
+     * @return ResponseEntity with HTTP status 404 if no photos are found for the room.
+     */
     @GetMapping("/room/{roomId}")
     public ResponseEntity<List<Photo>> getPhotosByRoomId(@PathVariable Long roomId) {
         List<Photo> photos = photoService.getPhotosByRoomId(roomId);
         return ResponseEntity.ok(photos);
     }
-    
+
+    /**
+     * @brief Retrieves a photo by its ID.
+     * 
+     * @param id The ID of the photo to retrieve.
+     * 
+     * @return ResponseEntity containing the Photo object, with HTTP status 200 if found.
+     * @return ResponseEntity with HTTP status 404 if the photo is not found.
+     */
     @GetMapping("/get/{id}")
     public ResponseEntity<Photo> getPhotoById(@PathVariable Long id) {
         Photo photo = photoService.findPhotoById(id);
         return photo != null ? ResponseEntity.ok(photo) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    /**
+     * @brief Deletes a photo based on its ID.
+     * 
+     * @param id The ID of the photo to delete.
+     * 
+     * @return ResponseEntity with HTTP status 200 if the photo is deleted successfully.
+     * @return ResponseEntity with HTTP status 404 if the photo is not found.
+     */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deletePhoto(@PathVariable Long id) {
         if (photoService.deletePhoto(id)) {
@@ -116,7 +155,19 @@ public class PhotoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Photo not found");
         }
     }
-    
+
+    /**
+     * @brief Updates a photo's details, such as name, description, or file.
+     * 
+     * @param id The ID of the photo to update.
+     * @param name The new name of the photo (optional).
+     * @param description The new description of the photo (optional).
+     * @param file The new photo file to upload (optional).
+     * 
+     * @return ResponseEntity containing the updated Photo object, with HTTP status 200 if successful.
+     * @return ResponseEntity with HTTP status 400 if the request is incorrect.
+     * @return ResponseEntity with HTTP status 404 if the photo is not found.
+     */
     @PutMapping("/update/{id}")
     public ResponseEntity<Photo> updatePhoto(@PathVariable Long id, 
                                              @RequestParam(required = false) String name,
@@ -125,5 +176,4 @@ public class PhotoController {
         Photo updatedPhoto = photoService.updatePhoto(id, name, description, file);
         return updatedPhoto != null ? ResponseEntity.ok(updatedPhoto) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
-
 }

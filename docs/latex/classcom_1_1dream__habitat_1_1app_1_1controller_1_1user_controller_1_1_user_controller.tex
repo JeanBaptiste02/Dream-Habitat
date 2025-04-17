@@ -1,0 +1,150 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+User\+Controller Class Reference}
+\hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller}{}\label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller}\index{com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}}
+
+
+Controller for handling user-\/related operations.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a2b598faf9134e095b663d289feb2a6a8}{User\+Controller}} (\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1_user_service}{User\+Service}} user\+Service)
+\begin{DoxyCompactList}\small\item\em Constructor for initializing \doxylink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller}{User\+Controller} with \doxylink{classcom_1_1dream__habitat_1_1app_1_1service_1_1_user_service}{User\+Service}. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a605f8158aa28a60764929e73e5f6077d}{add\+User}} (@Request\+Body \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_create_d_t_o}{User\+Create\+DTO}} user\+Create\+Dto)
+\begin{DoxyCompactList}\small\item\em Adds a new user to the database. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a4eae439e59e9c7cabc69f6f73d9b553a}{get\+User\+By\+Id}} (@Path\+Variable Long id)
+\begin{DoxyCompactList}\small\item\em Retrieves a user by their ID. \end{DoxyCompactList}\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO}} $>$ $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a8f8d25a7908ca410a335952bd2af0f85}{get\+All\+Users}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all users in the database. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_aab5215f5577c56e4a6adfbd95296e01a}{update\+User}} (@Path\+Variable Long id, @Request\+Body \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_create_d_t_o}{User\+Create\+DTO}} user\+Create\+Dto)
+\begin{DoxyCompactList}\small\item\em Updates an existing user\textquotesingle{}s information. \end{DoxyCompactList}\item 
+Response\+Entity$<$ Void $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a9d6b286363c02ea6359518a1b20cb537}{delete\+User}} (@Path\+Variable Long id)
+\begin{DoxyCompactList}\small\item\em Deletes a user from the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for handling user-\/related operations. 
+
+This controller manages user actions, such as adding, updating, retrieving, and deleting users in the database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a2b598faf9134e095b663d289feb2a6a8}\index{com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}!UserController@{UserController}}
+\index{UserController@{UserController}!com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}}
+\doxysubsubsection{\texorpdfstring{UserController()}{UserController()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a2b598faf9134e095b663d289feb2a6a8} 
+com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+User\+Controller.\+User\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1service_1_1_user_service}{User\+Service}}}]{user\+Service}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for initializing \doxylink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller}{User\+Controller} with \doxylink{classcom_1_1dream__habitat_1_1app_1_1service_1_1_user_service}{User\+Service}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Service} & The service for managing user-\/related operations. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a605f8158aa28a60764929e73e5f6077d}\index{com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}!addUser@{addUser}}
+\index{addUser@{addUser}!com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}}
+\doxysubsubsection{\texorpdfstring{addUser()}{addUser()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a605f8158aa28a60764929e73e5f6077d} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+User\+Controller.\+add\+User (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_create_d_t_o}{User\+Create\+DTO}}}]{user\+Create\+Dto}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new user to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Create\+Dto} & The DTO containing the user\textquotesingle{}s information (name, email, password).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing the created \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO} object, with HTTP status 201. 
+
+Response\+Entity with HTTP status 400 if the request is incorrect. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a9d6b286363c02ea6359518a1b20cb537}\index{com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}}
+\doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a9d6b286363c02ea6359518a1b20cb537} 
+Response\+Entity$<$ Void $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+User\+Controller.\+delete\+User (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a user from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the user to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with HTTP status 204 if the user was successfully deleted. 
+
+Response\+Entity with HTTP status 404 if the user was not found. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a8f8d25a7908ca410a335952bd2af0f85}\index{com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}!getAllUsers@{getAllUsers}}
+\index{getAllUsers@{getAllUsers}!com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}}
+\doxysubsubsection{\texorpdfstring{getAllUsers()}{getAllUsers()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a8f8d25a7908ca410a335952bd2af0f85} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO}} $>$ $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+User\+Controller.\+get\+All\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all users in the database. 
+
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a list of \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO} objects, with HTTP status 200. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a4eae439e59e9c7cabc69f6f73d9b553a}\index{com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}!getUserById@{getUserById}}
+\index{getUserById@{getUserById}!com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}}
+\doxysubsubsection{\texorpdfstring{getUserById()}{getUserById()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_a4eae439e59e9c7cabc69f6f73d9b553a} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+User\+Controller.\+get\+User\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a user by their ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the user to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing the \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO} object, with HTTP status 200. 
+
+Response\+Entity with HTTP status 404 if the user is not found. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_aab5215f5577c56e4a6adfbd95296e01a}\index{com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}!updateUser@{updateUser}}
+\index{updateUser@{updateUser}!com.dream\_habitat.app.controller.userController.UserController@{com.dream\_habitat.app.controller.userController.UserController}}
+\doxysubsubsection{\texorpdfstring{updateUser()}{updateUser()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1user_controller_1_1_user_controller_aab5215f5577c56e4a6adfbd95296e01a} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+user\+Controller.\+User\+Controller.\+update\+User (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{, }\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_create_d_t_o}{User\+Create\+DTO}}}]{user\+Create\+Dto}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates an existing user\textquotesingle{}s information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the user to update. \\
+\hline
+{\em user\+Create\+Dto} & The DTO containing the updated user\textquotesingle{}s information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing the updated \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1user_d_t_o_s_1_1_user_d_t_o}{User\+DTO} object, with HTTP status 200. 
+
+Response\+Entity with HTTP status 400 if the request is incorrect. 
+
+Response\+Entity with HTTP status 404 if the user is not found. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/controller/user\+Controller/\mbox{\hyperlink{_user_controller_8java}{User\+Controller.\+java}}\end{DoxyCompactItemize}

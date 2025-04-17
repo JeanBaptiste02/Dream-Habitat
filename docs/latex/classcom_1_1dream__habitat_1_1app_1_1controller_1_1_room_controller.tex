@@ -1,0 +1,106 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+controller.\+Room\+Controller Class Reference}
+\hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller}{}\label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller}\index{com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}}
+
+
+Controller for managing rooms (creation, retrieval, updating, and deletion).  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_response}{Room\+Response}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_a942cf0a90153efabf30ab2622201d374}{create\+Album}} (@Request\+Body \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_d_t_o}{Room\+DTO}} room\+DTO)
+\begin{DoxyCompactList}\small\item\em Creates a new room. \end{DoxyCompactList}\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_response}{Room\+Response}} $>$ $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_aa1c4b7d59ecdfe782942f67edf5116a4}{get\+All\+Albums}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all rooms. \end{DoxyCompactList}\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_response}{Room\+Response}} $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_aabf44654c4d3362da6d0ba91ce58b909}{get\+Album\+By\+Id}} (@Path\+Variable Long album\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves a room by its ID. \end{DoxyCompactList}\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} $>$ $>$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_a4418acc3346983f2c22e5b127a966fb4}{get\+Albums\+By\+User\+Id}} (@Request\+Header(value="{}Authorization"{}) String token)
+\begin{DoxyCompactList}\small\item\em Retrieves all rooms associated with a user based on the authentication token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for managing rooms (creation, retrieval, updating, and deletion). 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_a942cf0a90153efabf30ab2622201d374}\index{com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}!createAlbum@{createAlbum}}
+\index{createAlbum@{createAlbum}!com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}}
+\doxysubsubsection{\texorpdfstring{createAlbum()}{createAlbum()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_a942cf0a90153efabf30ab2622201d374} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_response}{Room\+Response}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Room\+Controller.\+create\+Album (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_d_t_o}{Room\+DTO}}}]{room\+DTO}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+DTO} & The DTO (Data Transfer Object) containing room details.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing the created room and HTTP status 201 (CREATED) if successful. 
+
+Response\+Entity with HTTP status 400 if the request is invalid (e.\+g., missing parameters). 
+
+Response\+Entity with HTTP status 404 if the user is not found. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_aabf44654c4d3362da6d0ba91ce58b909}\index{com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}!getAlbumById@{getAlbumById}}
+\index{getAlbumById@{getAlbumById}!com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}}
+\doxysubsubsection{\texorpdfstring{getAlbumById()}{getAlbumById()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_aabf44654c4d3362da6d0ba91ce58b909} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_response}{Room\+Response}} $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Room\+Controller.\+get\+Album\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{album\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a room by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em album\+Id} & The ID of the room.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing the \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_response}{Room\+Response} object with HTTP status 200 if found. 
+
+Response\+Entity with HTTP status 404 if the room is not found. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_a4418acc3346983f2c22e5b127a966fb4}\index{com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}!getAlbumsByUserId@{getAlbumsByUserId}}
+\index{getAlbumsByUserId@{getAlbumsByUserId}!com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}}
+\doxysubsubsection{\texorpdfstring{getAlbumsByUserId()}{getAlbumsByUserId()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_a4418acc3346983f2c22e5b127a966fb4} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_room}{Room}} $>$ $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Room\+Controller.\+get\+Albums\+By\+User\+Id (\begin{DoxyParamCaption}\item[{@Request\+Header(value="{}Authorization"{}) String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all rooms associated with a user based on the authentication token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The authorization token of the user.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a list of rooms associated with the user with HTTP status 200 if successful. 
+
+Response\+Entity with HTTP status 401 if the user is unauthorized (token missing or invalid). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_aa1c4b7d59ecdfe782942f67edf5116a4}\index{com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}!getAllAlbums@{getAllAlbums}}
+\index{getAllAlbums@{getAllAlbums}!com.dream\_habitat.app.controller.RoomController@{com.dream\_habitat.app.controller.RoomController}}
+\doxysubsubsection{\texorpdfstring{getAllAlbums()}{getAllAlbums()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1controller_1_1_room_controller_aa1c4b7d59ecdfe782942f67edf5116a4} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_response}{Room\+Response}} $>$ $>$ com.\+dream\+\_\+habitat.\+app.\+controller.\+Room\+Controller.\+get\+All\+Albums (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all rooms. 
+
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a list of \doxylink{classcom_1_1dream__habitat_1_1app_1_1dto_1_1room_d_t_o_s_1_1_room_response}{Room\+Response} objects with HTTP status 200 if successful. 
+
+Response\+Entity with HTTP status 404 if no rooms are found. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/controller/\mbox{\hyperlink{_room_controller_8java}{Room\+Controller.\+java}}\end{DoxyCompactItemize}

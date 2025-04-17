@@ -1,0 +1,67 @@
+\doxysection{com.\+dream\+\_\+habitat.\+app.\+utils.\+Jwt\+Util Class Reference}
+\hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util}{}\label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util}\index{com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_user}{User}} \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a4e74758d5d5307ee1911b34a01ad0eb2}{extract\+User}} (String token)
+\item 
+Date \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a725fdd037f06cfb97f1b0ca1ece28482}{extract\+Expiration}} (String token)
+\item 
+Boolean \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_acbb9ee8daaf1e154e1bbc146099ee47f}{validate\+Token}} (String token, User\+Details user\+Details)
+\item 
+String \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_ab4423ad7637153d3122d1ddaa9798206}{generate\+Token}} (\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_user}{User}} user)
+\item 
+String \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a17d5da8f4dd9641af5d326f7d81b10f8}{create\+Token}} (Map$<$ String, Object $>$ claims)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a10d76c50ad8a0228dcc6879fcb2971a0}{SECRET}} = "{}5367566B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A71347437"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a17d5da8f4dd9641af5d326f7d81b10f8}\index{com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}!createToken@{createToken}}
+\index{createToken@{createToken}!com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}}
+\doxysubsubsection{\texorpdfstring{createToken()}{createToken()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a17d5da8f4dd9641af5d326f7d81b10f8} 
+String com.\+dream\+\_\+habitat.\+app.\+utils.\+Jwt\+Util.\+create\+Token (\begin{DoxyParamCaption}\item[{Map$<$ String, Object $>$}]{claims}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a725fdd037f06cfb97f1b0ca1ece28482}\index{com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}!extractExpiration@{extractExpiration}}
+\index{extractExpiration@{extractExpiration}!com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}}
+\doxysubsubsection{\texorpdfstring{extractExpiration()}{extractExpiration()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a725fdd037f06cfb97f1b0ca1ece28482} 
+Date com.\+dream\+\_\+habitat.\+app.\+utils.\+Jwt\+Util.\+extract\+Expiration (\begin{DoxyParamCaption}\item[{String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a4e74758d5d5307ee1911b34a01ad0eb2}\index{com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}!extractUser@{extractUser}}
+\index{extractUser@{extractUser}!com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}}
+\doxysubsubsection{\texorpdfstring{extractUser()}{extractUser()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a4e74758d5d5307ee1911b34a01ad0eb2} 
+\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_user}{User}} com.\+dream\+\_\+habitat.\+app.\+utils.\+Jwt\+Util.\+extract\+User (\begin{DoxyParamCaption}\item[{String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_ab4423ad7637153d3122d1ddaa9798206}\index{com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}!generateToken@{generateToken}}
+\index{generateToken@{generateToken}!com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}}
+\doxysubsubsection{\texorpdfstring{generateToken()}{generateToken()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_ab4423ad7637153d3122d1ddaa9798206} 
+String com.\+dream\+\_\+habitat.\+app.\+utils.\+Jwt\+Util.\+generate\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1dream__habitat_1_1app_1_1model_1_1_user}{User}}}]{user}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_acbb9ee8daaf1e154e1bbc146099ee47f}\index{com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}!validateToken@{validateToken}}
+\index{validateToken@{validateToken}!com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}}
+\doxysubsubsection{\texorpdfstring{validateToken()}{validateToken()}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_acbb9ee8daaf1e154e1bbc146099ee47f} 
+Boolean com.\+dream\+\_\+habitat.\+app.\+utils.\+Jwt\+Util.\+validate\+Token (\begin{DoxyParamCaption}\item[{String}]{token}{, }\item[{User\+Details}]{user\+Details}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a10d76c50ad8a0228dcc6879fcb2971a0}\index{com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}!SECRET@{SECRET}}
+\index{SECRET@{SECRET}!com.dream\_habitat.app.utils.JwtUtil@{com.dream\_habitat.app.utils.JwtUtil}}
+\doxysubsubsection{\texorpdfstring{SECRET}{SECRET}}
+{\footnotesize\ttfamily \label{classcom_1_1dream__habitat_1_1app_1_1utils_1_1_jwt_util_a10d76c50ad8a0228dcc6879fcb2971a0} 
+final String com.\+dream\+\_\+habitat.\+app.\+utils.\+Jwt\+Util.\+SECRET = "{}5367566B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A713474375367566\+B59703373367639792\+F423\+F4528482\+B4\+D6251655468576\+D5\+A71347437"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/dream\+\_\+habitat/app/utils/\mbox{\hyperlink{_jwt_util_8java}{Jwt\+Util.\+java}}\end{DoxyCompactItemize}
