@@ -1,0 +1,27 @@
+stages:
+  - deploy
+
+sync_to_github:
+  stage: deploy
+  script:
+    - apt-get update && apt-get install -y rsync openssh-client
+    - mkdir -p ~/.ssh
+    - echo "$GITHUB_SSH_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+    - git clone --depth 1 git@github.com:YoubaDJAOUTI/DreamHabitat.git repo
+    - ls
+    - ls repo
+    - rsync -a --delete ./ repo/front/
+    - cd repo
+    - ls front
+    - git config user.name "YoubaDJAOUTI"
+    - git config user.email "youba.djaouti@epitech.eu"
+    - git add front/
+    - |
+      if ! git commit -m "Sync front from GitLab: $CI_COMMIT_SHORT_SHA"; then
+        echo "No changes to commit"
+      fi
+    - git push origin main
+  only:
+    - main
