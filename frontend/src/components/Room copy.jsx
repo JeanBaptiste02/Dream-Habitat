@@ -76,7 +76,7 @@ const Room = () => {
       if (!token) return;
 
       try {
-        const response = await fetch('https://dreamhabitat.victor-zhang.fr/api/room/user', {
+        const response = await fetch('https://dreamhabitat.djaouti.com/api/room/user', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -243,7 +243,7 @@ const Room = () => {
   //       formData.append('name', fileName);
 
   //       // 4. Upload de la photo
-  //       const uploadResponse = await fetch('https://dreamhabitat.victor-zhang.fr/api/photo/upload', {
+  //       const uploadResponse = await fetch('https://dreamhabitat.djaouti.com/api/photo/upload', {
   //         method: 'POST',
   //         headers: {
   //           'Authorization': `Bearer ${token}`
@@ -267,7 +267,7 @@ const Room = () => {
   //       setIsGenerating(true);
 
   //       // 5. Générer l'image IA
-  //       const generateUrl = new URL('https://dreamhabitat.victor-zhang.fr/api/interior/res');
+  //       const generateUrl = new URL('https://dreamhabitat.djaouti.com/api/interior/res');
   //       generateUrl.searchParams.append('style', selectedStyle);
   //       generateUrl.searchParams.append('room_type', selectedRoomType);
   //       generateUrl.searchParams.append('upscale', 'true');
@@ -336,7 +336,7 @@ const Room = () => {
       formData.append('description', `Room design for ${selectedRoomType}`);
       formData.append('name', fileName);
 
-      const uploadResponse = await fetch('https://dreamhabitat.victor-zhang.fr/api/photo/upload', {
+      const uploadResponse = await fetch('https://dreamhabitat.djaouti.com/api/photo/upload', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -351,7 +351,7 @@ const Room = () => {
       }
 
       // 3. Récupérer les photos de la pièce pour obtenir l'ID de la dernière photo uploadée
-      const photosResponse = await fetch(`https://dreamhabitat.victor-zhang.fr/api/photo/room/${selectedRoom.id}`, {
+      const photosResponse = await fetch(`https://dreamhabitat.djaouti.com/api/photo/room/${selectedRoom.id}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -377,7 +377,7 @@ const Room = () => {
       setIsGenerating(true);
 
       // 4. Générer l'image IA avec l'ID de la dernière photo
-      const generateUrl = new URL('https://dreamhabitat.victor-zhang.fr/api/interior/res');
+      const generateUrl = new URL('https://dreamhabitat.djaouti.com/api/interior/res');
       generateUrl.searchParams.append('style', selectedStyle);
       generateUrl.searchParams.append('room_type', selectedRoomType);
       generateUrl.searchParams.append('upscale', 'true');

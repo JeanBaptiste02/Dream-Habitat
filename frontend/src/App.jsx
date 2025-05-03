@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Composant principal de l'application qui gère le routage et la configuration globale
+ * @module App
+ */
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -25,10 +30,12 @@ import FaqPage from './components/FaqPage';
 import SupportPage from './components/SupportPage';
 import CareersPage from './components/CareersPage';
 
-
-
-
-
+/**
+ * Composant principal de l'application
+ * @function App
+ * @description Composant racine qui configure le store Redux, le provider PayPal et le routage de l'application
+ * @returns {JSX.Element} L'élément JSX représentant l'application
+ */
 function App() {
   return (
     <Provider store={store}>
@@ -57,7 +64,6 @@ function App() {
               <Route path="/cookies" element={<Cookies />} />
               <Route path="/mentions-legales" element={<LegalNotice />} />
               <Route path="/faq" element={<FaqPage />} />
-
               <Route path="/support" element={<SupportPage />} />
               <Route path="/carrieres" element={<CareersPage />} />
             </Routes>

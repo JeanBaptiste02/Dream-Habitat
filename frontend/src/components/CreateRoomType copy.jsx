@@ -31,7 +31,7 @@ const CreateRoomType = () => {
 
   const fetchUserRooms = async () => {
     try {
-      const response = await fetch(`https://dreamhabitat.victor-zhang.fr/api/room/user`, {
+      const response = await fetch(`https://dreamhabitat.djaouti.com/api/room/user`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -83,7 +83,7 @@ const CreateRoomType = () => {
     setError(null);
 
     try {
-      const response = await fetch('https://dreamhabitat.victor-zhang.fr/api/room/create', {
+      const response = await fetch('https://dreamhabitat.djaouti.com/api/room/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

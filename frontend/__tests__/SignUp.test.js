@@ -74,7 +74,7 @@ describe('SignUp Component', () => {
     });
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://dreamhabitat.victor-zhang.fr/api/users/addUser',
+      'https://dreamhabitat.djaouti.com/api/users/addUser',
       expect.objectContaining({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

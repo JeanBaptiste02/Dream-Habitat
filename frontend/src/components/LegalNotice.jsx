@@ -1,9 +1,31 @@
+/**
+ * @fileoverview Page des mentions légales
+ * @module LegalNotice
+ * @description Ce composant affiche les mentions légales de l'application DreamHabitat,
+ * organisées en sections dépliables pour une meilleure lisibilité. Il couvre les aspects
+ * juridiques tels que l'éditeur, l'hébergement, la propriété intellectuelle, la protection
+ * des données, les cookies, la responsabilité et le droit applicable.
+ */
+
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
+/**
+ * Composant des mentions légales
+ * @function LegalNotice
+ * @description Affiche les mentions légales de l'application avec des sections dépliables
+ * @returns {JSX.Element} La page des mentions légales avec toutes les sections
+ */
 const LegalNotice = () => {
   const [expandedSection, setExpandedSection] = useState(null);
 
+  /**
+   * Sections des mentions légales
+   * @constant {Array} sections
+   * @type {Array<Object>}
+   * @property {string} title - Le titre de la section
+   * @property {string|Array<string>} content - Le contenu de la section
+   */
   const sections = [
     {
       title: "1. Éditeur du site",

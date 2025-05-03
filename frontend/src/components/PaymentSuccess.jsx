@@ -1,9 +1,20 @@
+/**
+ * @fileoverview Page de confirmation de paiement réussi
+ * @module PaymentSuccess
+ */
+
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { CheckCircle } from 'lucide-react';
 import { addCredits } from '../store/slices/orderSlice';
 
+/**
+ * Composant de confirmation de paiement
+ * @function PaymentSuccess
+ * @description Affiche les détails du paiement réussi et met à jour les crédits de l'utilisateur
+ * @returns {JSX.Element} Page de confirmation de paiement avec les détails de la transaction
+ */
 const PaymentSuccess = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -11,6 +22,11 @@ const PaymentSuccess = () => {
   const paymentDetails = location.state?.paymentMethod;
   const purchasedCredits = location.state?.credits || 0;
 
+  /**
+   * Met à jour les crédits de l'utilisateur après un paiement réussi
+   * @function useEffect
+   * @param {number} purchasedCredits - Nombre de crédits achetés
+   */
   useEffect(() => {
     if (purchasedCredits > 0) {
       dispatch(addCredits(purchasedCredits));

@@ -1,3 +1,12 @@
+/**
+ * @fileoverview Page des fonctionnalités
+ * @module Features
+ * @description Ce composant présente les principales fonctionnalités de l'application
+ * DreamHabitat, mettant en avant les capacités de l'IA, la rapidité de génération
+ * et les options de personnalisation. Il utilise des animations pour une expérience
+ * utilisateur engageante.
+ */
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -16,7 +25,22 @@ import {
 } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Composant des fonctionnalités
+ * @function Features
+ * @description Affiche une présentation détaillée des fonctionnalités de l'application
+ * avec des animations et des sections interactives
+ * @returns {JSX.Element} La page des fonctionnalités avec toutes les sections
+ */
 const Features = () => {
+    /**
+     * Fonctionnalités principales
+     * @constant {Array} mainFeatures
+     * @type {Array<Object>}
+     * @property {JSX.Element} icon - L'icône représentant la fonctionnalité
+     * @property {string} title - Le titre de la fonctionnalité
+     * @property {string} description - La description de la fonctionnalité
+     */
     const mainFeatures = [
         {
             icon: <MdAutoAwesome className="w-8 h-8" />,
@@ -35,6 +59,14 @@ const Features = () => {
         }
     ];
 
+    /**
+     * Fonctionnalités détaillées
+     * @constant {Array} detailedFeatures
+     * @type {Array<Object>}
+     * @property {JSX.Element} icon - L'icône représentant la fonctionnalité
+     * @property {string} title - Le titre de la fonctionnalité
+     * @property {string} description - La description de la fonctionnalité
+     */
     const detailedFeatures = [
         {
             icon: <MdStyle className="w-6 h-6" />,
@@ -68,6 +100,13 @@ const Features = () => {
         }
     ];
 
+    /**
+     * Variantes d'animation pour le conteneur
+     * @constant {Object} containerVariants
+     * @type {Object}
+     * @property {Object} hidden - État initial invisible
+     * @property {Object} visible - État visible avec animation
+     */
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -78,6 +117,13 @@ const Features = () => {
         }
     };
 
+    /**
+     * Variantes d'animation pour les éléments
+     * @constant {Object} itemVariants
+     * @type {Object}
+     * @property {Object} hidden - État initial invisible
+     * @property {Object} visible - État visible avec animation
+     */
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {

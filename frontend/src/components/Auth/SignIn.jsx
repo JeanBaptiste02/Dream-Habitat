@@ -1,10 +1,23 @@
+/**
+ * @fileoverview Composant de connexion utilisateur
+ * @module SignIn
+ * @description Ce composant gère l'authentification des utilisateurs via un formulaire de connexion
+ * avec support de la connexion par email/mot de passe et via Google. Il inclut également des liens
+ * vers la réinitialisation de mot de passe et l'inscription.
+ */
+
 import React, { memo, useCallback } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginSuccess, loginError } from '../../store/slices/authSlice';
 import { useNavigate, Link } from 'react-router-dom';
 
-// Composant pour l'en-tête mémorisé
+/**
+ * Composant d'en-tête de la page de connexion
+ * @function SignInHeader
+ * @description Affiche le titre de bienvenue et le bouton de mise à niveau Pro
+ * @returns {JSX.Element} Le composant d'en-tête
+ */
 const SignInHeader = memo(() => (
   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
     <h2 className="text-2xl font-bold text-blue-600 mb-2 sm:mb-0">Bon retour !</h2>
@@ -15,7 +28,12 @@ const SignInHeader = memo(() => (
   </div>
 ));
 
-// Composant pour le bouton Google mémorisé
+/**
+ * Composant de bouton de connexion Google
+ * @function GoogleSignInButton
+ * @description Affiche le bouton de connexion Google et le séparateur
+ * @returns {JSX.Element} Le composant de bouton Google
+ */
 const GoogleSignInButton = memo(() => (
   <>
     <button className="w-full bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow flex items-center justify-center mb-4">
@@ -31,7 +49,12 @@ const GoogleSignInButton = memo(() => (
   </>
 ));
 
-// Composant pour les liens de bas de page mémorisés
+/**
+ * Composant des liens de bas de page
+ * @function SignInFooterLinks
+ * @description Affiche les liens vers la réinitialisation de mot de passe et l'inscription
+ * @returns {JSX.Element} Le composant des liens de bas de page
+ */
 const SignInFooterLinks = memo(() => (
   <>
     <div className="text-sm text-gray-600">
@@ -49,7 +72,14 @@ const SignInFooterLinks = memo(() => (
   </>
 ));
 
-// Composant de formulaire mémorisé
+/**
+ * Composant de formulaire de connexion
+ * @function SignInForm
+ * @param {Object} props - Les propriétés du composant
+ * @param {Function} props.onSubmit - Gestionnaire de soumission du formulaire
+ * @param {string|null} props.error - Message d'erreur à afficher
+ * @returns {JSX.Element} Le composant de formulaire
+ */
 const SignInForm = memo(({ onSubmit, error }) => (
   <form className="mb-4" onSubmit={onSubmit} role="form">
     {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -86,39 +116,24 @@ const SignInForm = memo(({ onSubmit, error }) => (
   </form>
 ));
 
-// Composant principal
+/**
+ * Composant principal de la page de connexion
+ * @function SignIn
+ * @description Gère l'ensemble du processus de connexion, y compris la soumission du formulaire
+ * et la gestion des erreurs d'authentification
+ * @returns {JSX.Element} La page de connexion complète
+ */
 export default function SignIn() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
   const navigate = useNavigate();
 
-  // Fonction mémorisée pour le traitement du formulaire
-  // const handleSubmit = useCallback(async (e) => {
-  //   e.preventDefault();
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
-
-  //   try {
-  //     const response = await fetch('https://dreamhabitat.victor-zhang.fr/api/login', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ email, password }),
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (response.ok && data.jwtToken) {
-  //       dispatch(loginSuccess(data.jwtToken));
-  //       navigate('/');
-  //     } else {
-  //       dispatch(loginError(data.message || 'Erreur de connexion'));
-  //     }
-  //   } catch (err) {
-  //     dispatch(loginError('Erreur de connexion'));
-  //   }
-  // }, [dispatch, navigate]);
+  /**
+   * Gestionnaire de soumission du formulaire
+   * @function handleSubmit
+   * @param {Event} e - L'événement de soumission du formulaire
+   * @async
+   */
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -126,7 +141,7 @@ export default function SignIn() {
     const password = formData.get("password");
   
     try {
-      const response = await fetch('https://dreamhabitat.victor-zhang.fr/api/login', {
+      const response = await fetch('https://dreamhabitat.djaouti.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

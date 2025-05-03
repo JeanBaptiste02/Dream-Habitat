@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Composant de la page d'accueil de l'application
+ * @module Home
+ */
+
 import React, { useState, useCallback, memo, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronUp, ChevronDown } from 'lucide-react';
@@ -6,7 +11,12 @@ import { ChevronUp, ChevronDown } from 'lucide-react';
 import ImageApres from '../assets/img/image-apres.svg';
 import ImageAvant from '../assets/img/image-avant.svg';
 
-// Composant de chargement à afficher pendant le chargement des images
+/**
+ * Composant de chargement pour les images
+ * @function ImageLoader
+ * @description Affiche un état de chargement pendant que les images sont en cours de chargement
+ * @returns {JSX.Element} Un composant de chargement animé
+ */
 const ImageLoader = () => (
   <div className="w-full h-64 bg-gray-200 animate-pulse rounded-lg flex items-center justify-center">
     <p className="text-gray-500">Chargement des images...</p>
@@ -50,7 +60,12 @@ const BeforeAfterImages = memo(() => {
   );
 });
 
-// Composant pour le contenu textuel mémorisé
+/**
+ * Composant pour le contenu textuel de la page d'accueil
+ * @function HomeContent
+ * @description Affiche le texte principal et le bouton d'action de la page d'accueil
+ * @returns {JSX.Element} Un composant contenant le contenu textuel
+ */
 const HomeContent = memo(() => {
   return (
     <div className="md:w-1/2 md:pl-12 mt-8 md:mt-0">
@@ -70,7 +85,15 @@ const HomeContent = memo(() => {
   );
 });
 
-// Composant de chat assistant optimisé et mémorisé
+/**
+ * Composant de chat assistant
+ * @function ChatAssistant
+ * @param {Object} props - Les propriétés du composant
+ * @param {boolean} props.isExpanded - État d'expansion du chat
+ * @param {Function} props.toggleChat - Fonction pour basculer l'état d'expansion
+ * @description Affiche un assistant de chat intégré qui peut être développé/réduit
+ * @returns {JSX.Element} Un composant de chat assistant
+ */
 const ChatAssistant = memo(({ isExpanded, toggleChat }) => {
   return (
     <div 
@@ -103,6 +126,12 @@ const ChatAssistant = memo(({ isExpanded, toggleChat }) => {
   );
 });
 
+/**
+ * Composant principal de la page d'accueil
+ * @function Home
+ * @description Page d'accueil de l'application qui combine tous les sous-composants
+ * @returns {JSX.Element} La page d'accueil complète
+ */
 const Home = () => {
   const [isChatExpanded, setIsChatExpanded] = useState(true);
   

@@ -1,15 +1,35 @@
+/**
+ * @fileoverview Composant principal pour la génération de designs d'intérieur
+ * @module Room
+ * @description Ce composant permet aux utilisateurs de télécharger une photo de leur pièce,
+ * de sélectionner un type de pièce et un style, puis de générer un nouveau design.
+ * Il gère également l'upload des images, la sélection des styles et l'affichage des résultats.
+ */
+
 import React, { useState, useRef, useEffect, useCallback, memo } from 'react';
 import { Upload } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import UploadZone from './UploadZone';
 
-// Fonctions utilitaires extraites
+/**
+ * Vérifie si la réponse est de type JSON
+ * @function isJsonResponse
+ * @param {Response} response - La réponse HTTP à vérifier
+ * @returns {boolean} True si la réponse est de type JSON, false sinon
+ */
 const isJsonResponse = (response) => {
   const contentType = response.headers.get('content-type');
   return contentType && contentType.includes('application/json');
 };
 
+/**
+ * Parse la réponse HTTP en JSON
+ * @function parseResponse
+ * @param {Response} response - La réponse HTTP à parser
+ * @returns {Promise<Object>} Les données JSON parsées
+ * @throws {Error} Si la réponse n'est pas un JSON valide ou si une erreur survient
+ */
 const parseResponse = async (response) => {
   try {
     const text = await response.text();
@@ -24,7 +44,10 @@ const parseResponse = async (response) => {
   }
 };
 
-// Listes statiques déplacées en dehors du composant
+/**
+ * Liste des types de pièces disponibles
+ * @constant {Array<string>} ALL_ROOM_TYPES
+ */
 const ALL_ROOM_TYPES = [
   'Living room', 'Bedroom', 'Bath room', 'Attic', 'Kitchen',
   'Dining room', 'Study room', 'Home office', 'Gaming room',
@@ -35,6 +58,10 @@ const ALL_ROOM_TYPES = [
   'Hotel room', 'Hotel bathroom', 'Exhibition space', 'Mudroom'
 ];
 
+/**
+ * Liste des styles de design disponibles
+ * @constant {Array<string>} STYLES
+ */
 const STYLES = [
   'Eastern', 'Modern', 'Minimalist', 'Contemporary', 'Scandinavian',
   'Zen', 'Midcentury modern', 'Tropical', 'Art deco', 'Farmhouse',
@@ -44,7 +71,14 @@ const STYLES = [
   'Neoclassic'
 ];
 
-// Composant d'erreur mémorisé
+/**
+ * Composant d'affichage des messages d'erreur
+ * @function ErrorMessage
+ * @param {Object} props - Les propriétés du composant
+ * @param {string} props.error - Le message d'erreur à afficher
+ * @param {Function} props.onClose - Fonction appelée lors de la fermeture du message
+ * @returns {JSX.Element|null} Le composant d'erreur ou null si aucune erreur
+ */
 const ErrorMessage = memo(({ error, onClose }) => {
   if (!error) return null;
   
@@ -61,7 +95,13 @@ const ErrorMessage = memo(({ error, onClose }) => {
   );
 });
 
-// Composant de chargement mémorisé
+/**
+ * Composant d'indicateur de chargement
+ * @function LoadingSpinner
+ * @param {Object} props - Les propriétés du composant
+ * @param {string} props.message - Le message à afficher pendant le chargement
+ * @returns {JSX.Element} Le composant de chargement
+ */
 const LoadingSpinner = memo(({ message }) => (
   <div className="text-center">
     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
@@ -69,7 +109,21 @@ const LoadingSpinner = memo(({ message }) => (
   </div>
 ));
 
-// Composant pour la section d'upload mémorisé
+/**
+ * Composant de zone d'upload d'images
+ * @function UploadSection
+ * @param {Object} props - Les propriétés du composant
+ * @param {string|null} props.selectedImage - L'URL de l'image sélectionnée
+ * @param {boolean} props.isDragging - État du drag and drop
+ * @param {Function} props.onDragOver - Gestionnaire d'événement drag over
+ * @param {Function} props.onDragLeave - Gestionnaire d'événement drag leave
+ * @param {Function} props.onDrop - Gestionnaire d'événement drop
+ * @param {Function} props.onUploadClick - Gestionnaire de clic sur le bouton d'upload
+ * @param {Object} props.fileInputRef - Référence à l'input de type file
+ * @param {Function} props.onFileInput - Gestionnaire de changement de fichier
+ * @param {Function} props.onImageRemove - Gestionnaire de suppression d'image
+ * @returns {JSX.Element} Le composant de zone d'upload
+ */
 const UploadSection = memo(({ 
   selectedImage, 
   isDragging, 
@@ -392,7 +446,7 @@ const Room = () => {
       formData.append('description', `Room design for ${selectedRoomType}`);
       formData.append('name', fileName);
 
-      const uploadResponse = await fetch('https://dreamhabitat.victor-zhang.fr/api/photo/upload', {
+      const uploadResponse = await fetch('https://dreamhabitat.djaouti.com/api/photo/upload', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -407,7 +461,7 @@ const Room = () => {
       }
 
       // 3. Récupérer les photos de la pièce pour obtenir l'ID de la dernière photo uploadée
-      const photosResponse = await fetch(`https://dreamhabitat.victor-zhang.fr/api/photo/room/${selectedRoom.id}`, {
+      const photosResponse = await fetch(`https://dreamhabitat.djaouti.com/api/photo/room/${selectedRoom.id}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -433,7 +487,7 @@ const Room = () => {
       setIsGenerating(true);
 
       // 4. Générer l'image IA avec l'ID de la dernière photo
-      const generateUrl = new URL('https://dreamhabitat.victor-zhang.fr/api/interior/res');
+      const generateUrl = new URL('https://dreamhabitat.djaouti.com/api/interior/res');
       generateUrl.searchParams.append('style', selectedStyle);
       generateUrl.searchParams.append('room_type', selectedRoomType);
       generateUrl.searchParams.append('upscale', 'true');
@@ -474,7 +528,7 @@ const Room = () => {
       if (!token) return;
 
       try {
-        const response = await fetch('https://dreamhabitat.victor-zhang.fr/api/room/user', {
+        const response = await fetch('https://dreamhabitat.djaouti.com/api/room/user', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'

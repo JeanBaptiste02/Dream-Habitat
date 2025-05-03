@@ -1,9 +1,26 @@
+/**
+ * @fileoverview Composant de paiement sécurisé utilisant Stripe
+ * @module Payment
+ */
+
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CheckoutForm from"./CheckoutForm"
+
+/**
+ * Clé publique Stripe pour le mode test
+ * @constant {Promise} stripePromise
+ */
 const stripePromise = loadStripe('pk_test_51QXSkWRnUB1GteDPhVKN4dRzRhTs4H2zA2gaB6AnW6OeZxf0C3I4pl4uCxg9gJxYznhj0BOipOCjQIVAccKZPr6q00Rd9pxhu7');
+
+/**
+ * Composant de paiement
+ * @function Payment
+ * @description Gère le processus de paiement en utilisant Stripe
+ * @returns {JSX.Element} Interface de paiement sécurisée
+ */
 const Payment = () => {
   const location = useLocation();
   const plan = location.state?.plan;

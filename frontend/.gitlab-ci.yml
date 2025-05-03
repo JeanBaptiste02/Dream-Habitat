@@ -1,27 +1,59 @@
+
 stages:
-  - deploy
+  - sonar
+  - sync
+
+sonar_scan:
+  stage: sonar
+  image: sonarsource/sonar-scanner-cli:latest
+  variables:
+    SONAR_USER_HOME: "$CI_PROJECT_DIR/.sonar"
+    SONAR_ORGANIZATION: front-gitlab
+  cache:
+    key: sonar-cache
+    paths: [ .sonar/cache ]
+  script:
+    - npm ci
+    - npm test -- --coverage
+    - |
+      sonar-scanner \
+        -Dsonar.projectKey=front-gitlab_front \
+        -Dsonar.organization=$SONAR_ORGANIZATION \
+        -Dsonar.sources=src \
+        -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+        -Dsonar.host.url=https://sonarcloud.io \
+        -Dsonar.token=$SONAR_TOKEN \
+        -Dsonar.exclusions=src/legacy/**,src/assets/** \
+        -Dsonar.branch.name=$CI_COMMIT_BRANCH \
+        -Dsonar.qualitygate.wait=true
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
 
 sync_to_github:
-  stage: deploy
-  script:
+  stage: sync
+  needs: ["sonar_scan"]                          
+  #image: alpine/git:latest
+  before_script:
     - apt-get update && apt-get install -y rsync openssh-client
+    #- apk add --no-cache rsync openssh-client     
     - mkdir -p ~/.ssh
     - echo "$GITHUB_SSH_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-    - git clone --depth 1 git@github.com:YoubaDJAOUTI/DreamHabitat.git repo
-    - ls
-    - ls repo
-    - rsync -a --delete ./ repo/front/
-    - cd repo
-    - ls front
-    - git config user.name "YoubaDJAOUTI"
-    - git config user.email "youba.djaouti@epitech.eu"
+  script:
+    - git clone --depth 1 git@github.com:YoubaDJAOUTI/DreamHabitat.git /tmp/repo
+    - rsync -a --delete ./ /tmp/repo/front/
+    - cd /tmp/repo
+    - git config user.name  "GitLab CI Sync"
+    - git config user.email "ci@sync.local"
     - git add front/
     - |
-      if ! git commit -m "Sync front from GitLab: $CI_COMMIT_SHORT_SHA"; then
-        echo "No changes to commit"
+      if git diff --cached --quiet; then
+        echo "Aucun changement à synchroniser"
+        exit 0
       fi
+    - git commit -m "Sync front from GitLab $CI_COMMIT_SHORT_SHA [skip ci]"
     - git push origin main
-  only:
-    - main
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'

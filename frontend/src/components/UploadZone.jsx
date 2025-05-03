@@ -1,21 +1,51 @@
+/**
+ * @fileoverview Composant de zone de téléchargement d'images avec support du drag and drop
+ * @module UploadZone
+ * @description Ce composant fournit une interface utilisateur pour télécharger des images
+ * avec support du drag and drop et de la sélection par clic. Il gère également la prévisualisation
+ * des images sélectionnées.
+ */
+
 import React, { useState, useRef, useCallback, memo } from 'react';
 import { Upload } from 'lucide-react';
 
+/**
+ * Composant de zone de téléchargement d'images
+ * @function UploadZone
+ * @param {Object} props - Les propriétés du composant
+ * @param {Function} props.onImageSelect - Callback appelé lorsqu'une image est sélectionnée
+ * @param {string|null} props.selectedImage - L'URL de l'image actuellement sélectionnée
+ * @returns {JSX.Element} Le composant de zone de téléchargement
+ */
 const UploadZone = memo(({ onImageSelect, selectedImage }) => {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
   
-  // Utilisation de useCallback pour mémoriser les fonctions de gestion d'événements
+  /**
+   * Gestionnaire d'événement drag over
+   * @function handleDragOver
+   * @param {DragEvent} e - L'événement de drag over
+   */
   const handleDragOver = useCallback((e) => {
     e.preventDefault();
     setIsDragging(true);
   }, []);
   
+  /**
+   * Gestionnaire d'événement drag leave
+   * @function handleDragLeave
+   * @param {DragEvent} e - L'événement de drag leave
+   */
   const handleDragLeave = useCallback((e) => {
     e.preventDefault();
     setIsDragging(false);
   }, []);
   
+  /**
+   * Gestionnaire d'événement drop
+   * @function handleDrop
+   * @param {DragEvent} e - L'événement de drop
+   */
   const handleDrop = useCallback((e) => {
     e.preventDefault();
     setIsDragging(false);
@@ -23,16 +53,30 @@ const UploadZone = memo(({ onImageSelect, selectedImage }) => {
     handleFiles(files);
   }, []);
   
+  /**
+   * Gestionnaire de clic sur la zone de téléchargement
+   * @function handleClick
+   */
   const handleClick = useCallback(() => {
     fileInputRef.current?.click();
   }, []);
   
+  /**
+   * Gestionnaire de changement de fichier
+   * @function handleFileInput
+   * @param {Event} e - L'événement de changement de fichier
+   */
   const handleFileInput = useCallback((e) => {
     const files = e.target.files;
     handleFiles(files);
   }, []);
   
-  // Cette fonction est incluse dans les dépendances des useCallback ci-dessus
+  /**
+   * Traite les fichiers sélectionnés
+   * @function handleFiles
+   * @param {FileList} files - Liste des fichiers sélectionnés
+   * @async
+   */
   const handleFiles = useCallback(async (files) => {
     if (files.length === 0) return;
     const file = files[0];
@@ -43,7 +87,11 @@ const UploadZone = memo(({ onImageSelect, selectedImage }) => {
     reader.readAsDataURL(file);
   }, [onImageSelect]);
   
-  // Composants d'UI mémorisés pour les états d'upload
+  /**
+   * Composant d'invite de téléchargement
+   * @function UploadPrompt
+   * @returns {JSX.Element} Le composant d'invite de téléchargement
+   */
   const UploadPrompt = memo(() => (
     <div className="text-center text-teal-400 p-6">
       <Upload size={48} className="mx-auto mb-4" />
@@ -53,6 +101,13 @@ const UploadZone = memo(({ onImageSelect, selectedImage }) => {
     </div>
   ));
   
+  /**
+   * Composant de prévisualisation d'image
+   * @function ImagePreview
+   * @param {Object} props - Les propriétés du composant
+   * @param {string} props.src - L'URL de l'image à prévisualiser
+   * @returns {JSX.Element} Le composant de prévisualisation d'image
+   */
   const ImagePreview = memo(({ src }) => (
     <div className="relative w-full h-full group">
       <img

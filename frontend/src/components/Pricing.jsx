@@ -1,10 +1,36 @@
+/**
+ * @fileoverview Composant de tarification
+ * @module Pricing
+ * @description Ce composant affiche les différents forfaits de crédits disponibles
+ * pour l'application, avec leurs caractéristiques et prix respectifs.
+ * Il permet également aux utilisateurs de sélectionner un forfait et d'être redirigés
+ * vers la page de paiement.
+ */
+
 import React from 'react';
 import { Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Composant de carte de tarification
+ * @function PricingCard
+ * @param {Object} props - Les propriétés du composant
+ * @param {Object} props.plan - Les détails du forfait
+ * @param {number} props.plan.credits - Le nombre de crédits inclus
+ * @param {number} props.plan.price - Le prix du forfait
+ * @param {string} props.plan.description - La description du forfait
+ * @param {string} props.plan.subtitle - Le sous-titre du forfait
+ * @param {boolean} props.plan.popular - Indique si c'est le forfait le plus populaire
+ * @returns {JSX.Element} La carte de tarification
+ */
 const PricingCard = ({ plan }) => {
   const navigate = useNavigate();
 
+  /**
+   * Gère la sélection d'un forfait
+   * @function handleSelectPlan
+   * @description Redirige vers la page de paiement avec les détails du forfait sélectionné
+   */
   const handleSelectPlan = () => {
     navigate('/payment', { 
       state: { plan }
@@ -69,6 +95,12 @@ const PricingCard = ({ plan }) => {
   );
 };
 
+/**
+ * Composant des caractéristiques principales
+ * @function Features
+ * @description Affiche les principales caractéristiques du service
+ * @returns {JSX.Element} La section des caractéristiques
+ */
 const Features = () => (
   <div className="grid md:grid-cols-3 gap-8">
     <div className="text-center p-6 rounded-xl bg-blue-50">
@@ -101,6 +133,13 @@ const Features = () => (
   </div>
 );
 
+/**
+ * Composant des témoignages
+ * @function Testimonials
+ * @param {Object} props - Les propriétés du composant
+ * @param {Array} props.testimonials - La liste des témoignages à afficher
+ * @returns {JSX.Element} La section des témoignages
+ */
 const Testimonials = ({ testimonials }) => (
   <div className="grid md:grid-cols-3 gap-8">
     {testimonials.map((testimonial, index) => (
@@ -123,6 +162,13 @@ const Testimonials = ({ testimonials }) => (
   </div>
 );
 
+/**
+ * Composant principal de tarification
+ * @function Pricing
+ * @description Affiche la page complète de tarification avec les forfaits,
+ * caractéristiques et témoignages
+ * @returns {JSX.Element} La page de tarification
+ */
 const Pricing = () => {
   const pricingPlans = [
     {

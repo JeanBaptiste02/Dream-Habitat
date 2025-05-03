@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/Auth/SignUp.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a><ul class='methods'><li data-type='method'><a href="module-App.html#~App">App</a></li></ul></li><li><a href="module-AppRoutes.html">AppRoutes</a><ul class='methods'><li data-type='method'><a href="module-AppRoutes.html#~AppRoutes">AppRoutes</a></li></ul></li><li><a href="module-CheckoutForm.html">CheckoutForm</a><ul class='methods'><li data-type='method'><a href="module-CheckoutForm.html#~CheckoutForm">CheckoutForm</a></li><li data-type='method'><a href="module-CheckoutForm.html#~handlePayPal">handlePayPal</a></li><li data-type='method'><a href="module-CheckoutForm.html#~handleSubmit">handleSubmit</a></li></ul></li><li><a href="module-Cookies.html">Cookies</a><ul class='methods'><li data-type='method'><a href="module-Cookies.html#~Cookies">Cookies</a></li></ul></li><li><a href="module-FaqPage.html">FaqPage</a><ul class='methods'><li data-type='method'><a href="module-FaqPage.html#~FaqPage">FaqPage</a></li></ul></li><li><a href="module-Features.html">Features</a><ul class='methods'><li data-type='method'><a href="module-Features.html#~Features">Features</a></li></ul></li><li><a href="module-Footer.html">Footer</a><ul class='methods'><li data-type='method'><a href="module-Footer.html#~Footer">Footer</a></li></ul></li><li><a href="module-Home.html">Home</a><ul class='methods'><li data-type='method'><a href="module-Home.html#~ChatAssistant">ChatAssistant</a></li><li data-type='method'><a href="module-Home.html#~Home">Home</a></li><li data-type='method'><a href="module-Home.html#~HomeContent">HomeContent</a></li><li data-type='method'><a href="module-Home.html#~ImageLoader">ImageLoader</a></li></ul></li><li><a href="module-LegalNotice.html">LegalNotice</a><ul class='methods'><li data-type='method'><a href="module-LegalNotice.html#~LegalNotice">LegalNotice</a></li></ul></li><li><a href="module-Navbar.html">Navbar</a><ul class='methods'><li data-type='method'><a href="module-Navbar.html#~Navbar">Navbar</a></li><li data-type='method'><a href="module-Navbar.html#~handleLogout">handleLogout</a></li><li data-type='method'><a href="module-Navbar.html#~toggleMenu">toggleMenu</a></li></ul></li><li><a href="module-Payment.html">Payment</a><ul class='methods'><li data-type='method'><a href="module-Payment.html#~Payment">Payment</a></li></ul></li><li><a href="module-PaymentSuccess.html">PaymentSuccess</a><ul class='methods'><li data-type='method'><a href="module-PaymentSuccess.html#~PaymentSuccess">PaymentSuccess</a></li><li data-type='method'><a href="module-PaymentSuccess.html#~useEffect">useEffect</a></li></ul></li><li><a href="module-Pricing.html">Pricing</a><ul class='methods'><li data-type='method'><a href="module-Pricing.html#~Features">Features</a></li><li data-type='method'><a href="module-Pricing.html#~Pricing">Pricing</a></li><li data-type='method'><a href="module-Pricing.html#~PricingCard">PricingCard</a></li><li data-type='method'><a href="module-Pricing.html#~Testimonials">Testimonials</a></li><li data-type='method'><a href="module-Pricing.html#~handleSelectPlan">handleSelectPlan</a></li></ul></li><li><a href="module-Profile.html">Profile</a><ul class='methods'><li data-type='method'><a href="module-Profile.html#~Profile">Profile</a></li><li data-type='method'><a href="module-Profile.html#~handleLogout">handleLogout</a></li><li data-type='method'><a href="module-Profile.html#~useEffect">useEffect</a></li></ul></li><li><a href="module-Room.html">Room</a><ul class='methods'><li data-type='method'><a href="module-Room.html#~ErrorMessage">ErrorMessage</a></li><li data-type='method'><a href="module-Room.html#~LoadingSpinner">LoadingSpinner</a></li><li data-type='method'><a href="module-Room.html#~UploadSection">UploadSection</a></li><li data-type='method'><a href="module-Room.html#~isJsonResponse">isJsonResponse</a></li><li data-type='method'><a href="module-Room.html#~parseResponse">parseResponse</a></li></ul></li><li><a href="module-SignIn.html">SignIn</a><ul class='methods'><li data-type='method'><a href="module-SignIn.html#~GoogleSignInButton">GoogleSignInButton</a></li><li data-type='method'><a href="module-SignIn.html#~SignIn">SignIn</a></li><li data-type='method'><a href="module-SignIn.html#~SignInFooterLinks">SignInFooterLinks</a></li><li data-type='method'><a href="module-SignIn.html#~SignInForm">SignInForm</a></li><li data-type='method'><a href="module-SignIn.html#~SignInHeader">SignInHeader</a></li><li data-type='method'><a href="module-SignIn.html#~handleSubmit">handleSubmit</a></li></ul></li><li><a href="module-SignUp.html">SignUp</a><ul class='methods'><li data-type='method'><a href="module-SignUp.html#~GoogleSignUpButton">GoogleSignUpButton</a></li><li data-type='method'><a href="module-SignUp.html#~SignUp">SignUp</a></li><li data-type='method'><a href="module-SignUp.html#~SignUpForm">SignUpForm</a></li><li data-type='method'><a href="module-SignUp.html#~SignUpHeader">SignUpHeader</a></li><li data-type='method'><a href="module-SignUp.html#~handleInputChange">handleInputChange</a></li><li data-type='method'><a href="module-SignUp.html#~handleSubmit">handleSubmit</a></li></ul></li><li><a href="module-SupportPage.html">SupportPage</a><ul class='methods'><li data-type='method'><a href="module-SupportPage.html#~SupportPage">SupportPage</a></li></ul></li><li><a href="module-UploadZone.html">UploadZone</a><ul class='methods'><li data-type='method'><a href="module-UploadZone.html#~ImagePreview">ImagePreview</a></li><li data-type='method'><a href="module-UploadZone.html#~UploadPrompt">UploadPrompt</a></li><li data-type='method'><a href="module-UploadZone.html#~UploadZone">UploadZone</a></li><li data-type='method'><a href="module-UploadZone.html#~handleClick">handleClick</a></li><li data-type='method'><a href="module-UploadZone.html#~handleDragLeave">handleDragLeave</a></li><li data-type='method'><a href="module-UploadZone.html#~handleDragOver">handleDragOver</a></li><li data-type='method'><a href="module-UploadZone.html#~handleDrop">handleDrop</a></li><li data-type='method'><a href="module-UploadZone.html#~handleFileInput">handleFileInput</a></li><li data-type='method'><a href="module-UploadZone.html#~handleFiles">handleFiles</a></li></ul></li><li><a href="module-main.html">main</a></li><li><a href="module-routes.html">routes</a></li><li><a href="module-stripePromise.html">stripePromise</a><ul class='methods'><li data-type='method'><a href="module-stripePromise.html#~CheckoutForm">CheckoutForm</a></li><li data-type='method'><a href="module-stripePromise.html#~handlePayPal">handlePayPal</a></li><li data-type='method'><a href="module-stripePromise.html#~handleSubmit">handleSubmit</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/Auth/SignUp.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @fileoverview Composant d'inscription utilisateur
+ * @module SignUp
+ * @description Ce composant gère l'inscription des nouveaux utilisateurs via un formulaire
+ * avec support de l'inscription par email/mot de passe et via Google. Il inclut également
+ * des validations de formulaire et la gestion des erreurs.
+ */
+
+import React, { useState, useCallback, memo } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+
+/**
+ * Composant d'en-tête de la page d'inscription
+ * @function SignUpHeader
+ * @description Affiche le titre de bienvenue et le bouton de mise à niveau Pro
+ * @returns {JSX.Element} Le composant d'en-tête
+ */
+const SignUpHeader = memo(() => (
+  &lt;div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
+    &lt;h2 className="text-2xl font-bold text-blue-600 mb-2 sm:mb-0">Commençons&lt;/h2>
+    &lt;button className="bg-purple-400 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center self-start sm:self-auto">
+      Passer à Pro
+      &lt;span className="ml-1 text-yellow-300">👑&lt;/span>
+    &lt;/button>
+  &lt;/div>
+));
+
+/**
+ * Composant de bouton d'inscription Google
+ * @function GoogleSignUpButton
+ * @description Affiche le bouton d'inscription Google et le séparateur
+ * @returns {JSX.Element} Le composant de bouton Google
+ */
+const GoogleSignUpButton = memo(() => (
+  &lt;>
+    &lt;button className="w-full bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow flex items-center justify-center mb-4">
+      &lt;FcGoogle className="mr-2" size={20} />
+      Inscrivez-vous avec Google
+    &lt;/button>
+
+    &lt;div className="flex items-center mb-4">
+      &lt;div className="flex-grow border-t border-gray-300">&lt;/div>
+      &lt;span className="flex-shrink mx-4 text-gray-500">ou&lt;/span>
+      &lt;div className="flex-grow border-t border-gray-300">&lt;/div>
+    &lt;/div>
+  &lt;/>
+));
+
+/**
+ * Composant de formulaire d'inscription
+ * @function SignUpForm
+ * @param {Object} props - Les propriétés du composant
+ * @param {Object} props.formData - Les données du formulaire
+ * @param {Function} props.handleInputChange - Gestionnaire de changement de champ
+ * @param {Function} props.handleSubmit - Gestionnaire de soumission du formulaire
+ * @param {string|null} props.error - Message d'erreur à afficher
+ * @returns {JSX.Element} Le composant de formulaire
+ */
+const SignUpForm = memo(({ formData, handleInputChange, handleSubmit, error }) => (
+  &lt;form onSubmit={handleSubmit} role="form">
+    {error &amp;&amp; &lt;p className="text-red-500 mb-4">{error}&lt;/p>}
+
+    &lt;div className="mb-4">
+      &lt;label
+        className="block text-gray-700 text-sm font-bold mb-2"
+        htmlFor="name"
+      >
+        Nom
+      &lt;/label>
+      &lt;input
+        className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="name"
+        type="text"
+        name="name"
+        placeholder="Votre nom"
+        value={formData.name}
+        onChange={handleInputChange}
+        required
+      />
+    &lt;/div>
+
+    &lt;div className="mb-4">
+      &lt;label
+        className="block text-gray-700 text-sm font-bold mb-2"
+        htmlFor="email"
+      >
+        E-mail
+      &lt;/label>
+      &lt;input
+        className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="email"
+        type="email"
+        name="email"
+        placeholder="Votre email"
+        value={formData.email}
+        onChange={handleInputChange}
+        required
+      />
+    &lt;/div>
+
+    &lt;div className="mb-6">
+      &lt;label
+        className="block text-gray-700 text-sm font-bold mb-2"
+        htmlFor="password"
+      >
+        Mot de passe
+      &lt;/label>
+      &lt;input
+        className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="password"
+        type="password"
+        name="password"
+        placeholder="Votre mot de passe"
+        value={formData.password}
+        onChange={handleInputChange}
+        required
+      />
+    &lt;/div>
+
+    &lt;button
+      className="w-full font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 transition duration-300 mb-4"
+      type="submit"
+    >
+      Continuer
+    &lt;/button>
+  
+    &lt;p className="text-xs text-gray-500 mt-2">
+      En vous inscrivant, vous acceptez nos{" "}
+      &lt;Link to="/conditions" className="text-blue-500 hover:text-blue-700">
+        Conditions générales
+      &lt;/Link>.
+    &lt;/p>
+  &lt;/form>
+));
+
+// Composant de pied de page mémorisé
+const SignUpFooter = memo(() => (
+  &lt;p className="text-sm text-center mt-4">
+    Déjà membre ?{" "}
+    &lt;Link to="/login" className="text-blue-500 hover:text-blue-700">
+      Connectez-vous ici
+    &lt;/Link>
+  &lt;/p>
+));
+
+/**
+ * Composant principal de la page d'inscription
+ * @function SignUp
+ * @description Gère l'ensemble du processus d'inscription, y compris la gestion des états
+ * du formulaire, la validation et la soumission des données
+ * @returns {JSX.Element} La page d'inscription complète
+ */
+const SignUp = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  /**
+   * Gestionnaire de changement de champ du formulaire
+   * @function handleInputChange
+   * @param {Event} e - L'événement de changement
+   */
+  const handleInputChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }, []);
+
+  /**
+   * Gestionnaire de soumission du formulaire
+   * @function handleSubmit
+   * @param {Event} e - L'événement de soumission
+   * @async
+   */
+  const handleSubmit = useCallback(async (e) => {
+    e.preventDefault();
+    setError(null);
+
+    try {
+      const response = await fetch("https://dreamhabitat.djaouti.com/api/users/addUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        navigate("/login");
+      } else {
+        setError(data.message || "Erreur lors de l'inscription");
+      }
+    } catch (err) {
+      setError("Une erreur est survenue. Veuillez réessayer.");
+    }
+  }, [formData, navigate]);
+
+  return (
+    &lt;div className="flex flex-col items-center py-6 sm:py-10 bg-gray-100">
+      &lt;div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 sm:p-8">
+        &lt;SignUpHeader />
+
+        &lt;p className="text-gray-600 mb-6">
+          Un espace conçu par un designer que vous allez adorer, à un prix que
+          vous aimerez encore plus !
+        &lt;/p>
+
+        &lt;GoogleSignUpButton />
+        &lt;SignUpForm 
+          formData={formData} 
+          handleInputChange={handleInputChange} 
+          handleSubmit={handleSubmit} 
+          error={error} 
+        />
+        &lt;SignUpFooter />
+      &lt;/div>
+    &lt;/div>
+  );
+};
+
+export default SignUp;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Fri May 02 2025 09:31:16 GMT+0200 (heure d’été d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

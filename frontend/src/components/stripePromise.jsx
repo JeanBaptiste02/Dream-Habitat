@@ -1,11 +1,28 @@
+/**
+ * @fileoverview Configuration et composants pour le paiement Stripe
+ * @module stripePromise
+ */
+
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-// Remplacez par votre clé publique Stripe
+/**
+ * Instance de Stripe initialisée avec la clé publique
+ * @constant {Promise} stripePromise
+ */
 const stripePromise = loadStripe('votre_cle_publique_stripe');
 
+/**
+ * Composant de formulaire de paiement Stripe
+ * @function CheckoutForm
+ * @param {Object} props - Les propriétés du composant
+ * @param {number} props.price - Le prix à payer
+ * @param {number} props.credits - Le nombre de crédits achetés
+ * @description Gère le processus de paiement avec Stripe et PayPal
+ * @returns {JSX.Element} Formulaire de paiement avec options de carte bancaire et PayPal
+ */
 const CheckoutForm = ({ price, credits }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -13,6 +30,12 @@ const CheckoutForm = ({ price, credits }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  /**
+   * Gère la soumission du formulaire de paiement
+   * @function handleSubmit
+   * @param {Event} e - L'événement de soumission du formulaire
+   * @async
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -38,6 +61,10 @@ const CheckoutForm = ({ price, credits }) => {
     navigate('/success');
   };
 
+  /**
+   * Redirige vers PayPal pour le paiement
+   * @function handlePayPal
+   */
   const handlePayPal = () => {
     window.location.href = `https://www.paypal.com/paypalme/dreamhabitat/${price}EUR`;
   };

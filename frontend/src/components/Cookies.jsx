@@ -1,9 +1,30 @@
+/**
+ * @fileoverview Page de politique des cookies
+ * @module Cookies
+ * @description Ce composant affiche la politique des cookies de l'application DreamHabitat,
+ * expliquant l'utilisation des cookies, leur gestion et les préférences des utilisateurs.
+ * Les informations sont organisées en sections dépliables pour une meilleure lisibilité.
+ */
+
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
+/**
+ * Composant de la politique des cookies
+ * @function Cookies
+ * @description Affiche la politique des cookies avec des sections dépliables
+ * @returns {JSX.Element} La page de politique des cookies avec toutes les sections
+ */
 const Cookies = () => {
   const [expandedSection, setExpandedSection] = useState(null);
 
+  /**
+   * Sections de la politique des cookies
+   * @constant {Array} sections
+   * @type {Array<Object>}
+   * @property {string} title - Le titre de la section
+   * @property {string|Array<string>} content - Le contenu de la section
+   */
   const sections = [
     {
       title: "Qu'est-ce qu'un cookie ?",

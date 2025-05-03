@@ -1,16 +1,16 @@
-{
-  acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
-  email juba.djaouti@gmail.com
-}
+#{
+#  acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+#  email juba.djaouti@gmail.com
+#}
 
-dreamhabitat.victor-zhang.fr {
+dreamhabitat.djaouti.com {
   root * /usr/share/caddy
   file_server
 
   handle /api/* {
     reverse_proxy app:8080 {
       # Add necessary headers for CORS
-      header_down Access-Control-Allow-Origin https://dreamhabitat.victor-zhang.fr
+      header_down Access-Control-Allow-Origin https://dreamhabitat.djaouti.com
       header_down Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
       header_down Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, Authorization"
       header_down Access-Control-Allow-Credentials true

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Formulaire de paiement sécurisé avec Stripe et PayPal
+ * @module CheckoutForm
+ */
+
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
@@ -6,7 +11,15 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 // Initialisez Stripe avec votre clé publique test
 
 
-// Composant du formulaire de paiement
+/**
+ * Composant de formulaire de paiement
+ * @function CheckoutForm
+ * @param {Object} props - Les propriétés du composant
+ * @param {number} props.price - Le prix à payer
+ * @param {number} props.credits - Le nombre de crédits achetés
+ * @description Gère le processus de paiement avec Stripe et PayPal
+ * @returns {JSX.Element} Formulaire de paiement avec options de carte bancaire et PayPal
+ */
 const CheckoutForm = ({ price, credits }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -14,10 +27,20 @@ const CheckoutForm = ({ price, credits }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  /**
+   * Redirige vers PayPal pour le paiement
+   * @function handlePayPal
+   */
   const handlePayPal = () => {
     window.location.href = `https://paypal.me/dreamhabitat/${price}EUR`;
   };
 
+  /**
+   * Gère la soumission du formulaire de paiement par carte
+   * @function handleSubmit
+   * @param {Event} e - L'événement de soumission du formulaire
+   * @async
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);

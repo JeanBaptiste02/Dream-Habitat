@@ -1,9 +1,20 @@
+/**
+ * @fileoverview Composant de navigation principal de l'application
+ * @module Navbar
+ */
+
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store/slices/authSlice';
 import avatar from '../assets/img/avatar.jpg';
 
+/**
+ * Composant de barre de navigation responsive
+ * @function Navbar
+ * @description Barre de navigation qui s'adapte aux appareils mobiles et desktop
+ * @returns {JSX.Element} La barre de navigation complète avec ses différents états
+ */
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -16,11 +27,21 @@ const Navbar = () => {
   const token = useSelector((state) => state.auth.token);
   const user = useSelector((state) => state.auth.user);
 
+  /**
+   * Gère la déconnexion de l'utilisateur
+   * @function handleLogout
+   * @description Déconnecte l'utilisateur et le redirige vers la page de connexion
+   */
   const handleLogout = () => {
     dispatch(logout());
     navigate('/login');
   };
 
+  /**
+   * Bascule l'état du menu mobile
+   * @function toggleMenu
+   * @description Inverse l'état d'ouverture/fermeture du menu mobile
+   */
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };

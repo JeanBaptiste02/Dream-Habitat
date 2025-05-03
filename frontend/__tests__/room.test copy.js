@@ -57,7 +57,7 @@ describe('Room Component Functional Tests', () => {
     
     // Mock successful fetch for user rooms
     global.fetch.mockImplementation((url) => {
-      if (url === 'https://dreamhabitat.victor-zhang.fr/api/room/user') {
+      if (url === 'https://dreamhabitat.djaouti.com/api/room/user') {
         return Promise.resolve({
           ok: true,
           headers: { get: () => 'application/json' },
@@ -142,7 +142,7 @@ describe('Room Component Performance Tests', () => {
     
     // Mock user rooms fetch
     global.fetch.mockImplementation((url) => {
-      if (url === 'https://dreamhabitat.victor-zhang.fr/api/room/user') {
+      if (url === 'https://dreamhabitat.djaouti.com/api/room/user') {
         return Promise.resolve({
           ok: true,
           headers: { get: () => 'application/json' },

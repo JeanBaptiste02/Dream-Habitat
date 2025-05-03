@@ -1,8 +1,34 @@
+/**
+ * @fileoverview Page de support client
+ * @module SupportPage
+ * @description Ce composant affiche les différentes options de support disponibles
+ * pour les utilisateurs, y compris le chat en direct, l'email et le centre d'aide.
+ * Il présente également une liste de problèmes fréquents et des informations de contact.
+ */
+
 import React from 'react';
 import { Mail, MessageCircle, Clock, FileText, Phone, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Composant de page de support
+ * @function SupportPage
+ * @description Affiche une interface complète pour le support client avec
+ * différentes options de contact et une liste de problèmes fréquents
+ * @returns {JSX.Element} La page de support avec toutes les options de contact
+ */
 const SupportPage = () => {
+  /**
+   * Options de support disponibles
+   * @constant {Array} supportOptions
+   * @type {Array<Object>}
+   * @property {JSX.Element} icon - L'icône représentant l'option
+   * @property {string} title - Le titre de l'option
+   * @property {string} description - La description de l'option
+   * @property {string} buttonText - Le texte du bouton d'action
+   * @property {string} [availability] - Les heures de disponibilité (optionnel)
+   * @property {string} [link] - Le lien vers la ressource (optionnel)
+   */
   const supportOptions = [
     {
       icon: <MessageCircle className="w-8 h-8" />,
@@ -27,6 +53,11 @@ const SupportPage = () => {
     }
   ];
 
+  /**
+   * Liste des problèmes fréquemment rencontrés
+   * @constant {Array} commonIssues
+   * @type {Array<string>}
+   */
   const commonIssues = [
     "Comment démarrer avec DreamHabitat ?",
     "Problèmes de paiement",

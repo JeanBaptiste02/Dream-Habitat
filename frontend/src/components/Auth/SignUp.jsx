@@ -1,8 +1,21 @@
+/**
+ * @fileoverview Composant d'inscription utilisateur
+ * @module SignUp
+ * @description Ce composant gère l'inscription des nouveaux utilisateurs via un formulaire
+ * avec support de l'inscription par email/mot de passe et via Google. Il inclut également
+ * des validations de formulaire et la gestion des erreurs.
+ */
+
 import React, { useState, useCallback, memo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 
-// Composant d'en-tête mémorisé
+/**
+ * Composant d'en-tête de la page d'inscription
+ * @function SignUpHeader
+ * @description Affiche le titre de bienvenue et le bouton de mise à niveau Pro
+ * @returns {JSX.Element} Le composant d'en-tête
+ */
 const SignUpHeader = memo(() => (
   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
     <h2 className="text-2xl font-bold text-blue-600 mb-2 sm:mb-0">Commençons</h2>
@@ -13,7 +26,12 @@ const SignUpHeader = memo(() => (
   </div>
 ));
 
-// Composant du bouton Google mémorisé
+/**
+ * Composant de bouton d'inscription Google
+ * @function GoogleSignUpButton
+ * @description Affiche le bouton d'inscription Google et le séparateur
+ * @returns {JSX.Element} Le composant de bouton Google
+ */
 const GoogleSignUpButton = memo(() => (
   <>
     <button className="w-full bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow flex items-center justify-center mb-4">
@@ -29,7 +47,16 @@ const GoogleSignUpButton = memo(() => (
   </>
 ));
 
-// Composant du formulaire mémorisé
+/**
+ * Composant de formulaire d'inscription
+ * @function SignUpForm
+ * @param {Object} props - Les propriétés du composant
+ * @param {Object} props.formData - Les données du formulaire
+ * @param {Function} props.handleInputChange - Gestionnaire de changement de champ
+ * @param {Function} props.handleSubmit - Gestionnaire de soumission du formulaire
+ * @param {string|null} props.error - Message d'erreur à afficher
+ * @returns {JSX.Element} Le composant de formulaire
+ */
 const SignUpForm = memo(({ formData, handleInputChange, handleSubmit, error }) => (
   <form onSubmit={handleSubmit} role="form">
     {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -117,7 +144,13 @@ const SignUpFooter = memo(() => (
   </p>
 ));
 
-// Composant principal
+/**
+ * Composant principal de la page d'inscription
+ * @function SignUp
+ * @description Gère l'ensemble du processus d'inscription, y compris la gestion des états
+ * du formulaire, la validation et la soumission des données
+ * @returns {JSX.Element} La page d'inscription complète
+ */
 const SignUp = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -127,19 +160,31 @@ const SignUp = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Fonction mémorisée pour la gestion des changements de champs
+  /**
+   * Gestionnaire de changement de champ du formulaire
+   * @function handleInputChange
+   * @param {Event} e - L'événement de changement
+   */
   const handleInputChange = useCallback((e) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({ ...prevData, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   }, []);
 
-  // Fonction mémorisée pour la soumission du formulaire
+  /**
+   * Gestionnaire de soumission du formulaire
+   * @function handleSubmit
+   * @param {Event} e - L'événement de soumission
+   * @async
+   */
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setError(null);
 
     try {
-      const response = await fetch("https://dreamhabitat.victor-zhang.fr/api/users/addUser", {
+      const response = await fetch("https://dreamhabitat.djaouti.com/api/users/addUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

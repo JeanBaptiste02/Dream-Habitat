@@ -1,9 +1,33 @@
+/**
+ * @fileoverview Page des questions fréquentes
+ * @module FaqPage
+ * @description Ce composant affiche les questions fréquemment posées (FAQ) sur l'application
+ * DreamHabitat, organisées par catégories avec des sections dépliables pour une meilleure
+ * lisibilité. Il couvre les sujets généraux, la tarification, les aspects techniques,
+ * la gestion du compte et le support.
+ */
+
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
+/**
+ * Composant de la page FAQ
+ * @function FaqPage
+ * @description Affiche les questions fréquemment posées avec des sections dépliables
+ * @returns {JSX.Element} La page FAQ avec toutes les catégories et questions
+ */
 const FaqPage = () => {
   const [expandedSection, setExpandedSection] = useState(null);
 
+  /**
+   * Liste des questions fréquemment posées par catégorie
+   * @constant {Array} faqs
+   * @type {Array<Object>}
+   * @property {string} category - La catégorie des questions
+   * @property {Array<Object>} questions - Les questions et réponses de la catégorie
+   * @property {string} questions[].q - La question
+   * @property {string} questions[].a - La réponse
+   */
   const faqs = [
     {
       category: "Général",

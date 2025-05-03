@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "doc": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -21,6 +22,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
+    "dream-habitat": "file:",
     "framer-motion": "^11.11.10",
     "lucide-react": "^0.454.0",
     "react": "^18.3.1",
@@ -41,6 +43,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "babel-jest": "^29.7.0",
+    "docdash": "^2.0.2",
     "eslint": "^9.9.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
@@ -48,6 +51,7 @@
     "globals": "^15.9.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jsdoc": "^4.0.4",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "vite": "^5.4.1"

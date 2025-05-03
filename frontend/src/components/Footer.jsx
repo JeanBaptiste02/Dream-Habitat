@@ -1,6 +1,17 @@
+/**
+ * @fileoverview Composant de pied de page de l'application
+ * @module Footer
+ */
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Composant de pied de page responsive
+ * @function Footer
+ * @description Pied de page qui s'adapte aux appareils mobiles et desktop, contenant les liens importants et les informations légales
+ * @returns {JSX.Element} Le pied de page complet avec ses différentes sections
+ */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 

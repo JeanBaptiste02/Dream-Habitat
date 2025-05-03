@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Composant de profil utilisateur
+ * @module Profile
+ * @description Ce composant affiche les informations du profil utilisateur, y compris
+ * les détails du compte, les crédits disponibles et l'historique des commandes.
+ * Il gère également la déconnexion de l'utilisateur.
+ */
 
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -5,18 +12,35 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../store/slices/authSlice';
 import { clearOrders } from '../store/slices/orderSlice';
 
+/**
+ * Composant de profil utilisateur
+ * @function Profile
+ * @description Affiche et gère les informations du profil utilisateur
+ * @returns {JSX.Element|null} Le composant de profil ou null si l'utilisateur n'est pas connecté
+ */
 const Profile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const { orders, credits } = useSelector((state) => state.orders);
 
+  /**
+   * Vérifie si l'utilisateur est connecté et redirige si nécessaire
+   * @function useEffect
+   * @param {Object} user - L'utilisateur actuel
+   * @param {Function} navigate - Fonction de navigation
+   */
   useEffect(() => {
     if (!user) {
       navigate('/login');
     }
   }, [user, navigate]);
 
+  /**
+   * Gère la déconnexion de l'utilisateur
+   * @function handleLogout
+   * @description Déconnecte l'utilisateur, efface les commandes et redirige vers la page de connexion
+   */
   const handleLogout = () => {
     dispatch(logout());
     dispatch(clearOrders());

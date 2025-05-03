@@ -29,7 +29,7 @@ const CreateRoomType = () => {
     setError(null);
 
     try {
-      const response = await fetch('https://dreamhabitat.victor-zhang.fr/api/room/create', {
+      const response = await fetch('https://dreamhabitat.djaouti.com/api/room/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
